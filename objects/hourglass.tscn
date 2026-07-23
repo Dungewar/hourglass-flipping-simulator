@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://byxya6mms46ma"]
+
+[ext_resource type="Script" uid="uid://bv7r84spx6df0" path="res://scripts/hourglass.gd" id="1_lngjq"]
+[ext_resource type="Texture2D" uid="uid://bactnbgq31knc" path="res://assets/hourglass.png" id="2_fnpwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wrs"]
+size = Vector2(339.25, 394.5)
+
+[node name="Hourglass" type="Area2D" unique_id=54489162]
+script = ExtResource("1_lngjq")
+metadata/_custom_type_script = "uid://bv7r84spx6df0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356531494]
+position = Vector2(13.375, 2.75)
+shape = SubResource("RectangleShape2D_j7wrs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=594538298]
+position = Vector2(16.999996, 5.0000076)
+scale = Vector2(0.52364856, 0.3417838)
+texture = ExtResource("2_fnpwp")
