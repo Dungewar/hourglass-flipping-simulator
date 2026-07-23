@@ -9,7 +9,7 @@ var hourglass_list: Array[Hourglass] = []
 
 # Graphics
 var hourglass_width = 300
-var hourglass_start_position = -600
+var hourglass_start_position = -500
 
 func _ready():
 	GM.houglass_spawner = self
