@@ -1,9 +1,18 @@
 extends Area2D
 class_name Hourglass
 
+static var DEFAULT_TIME:int = 0;
+
 var target_rotation: float = 0.0
-var max_time:float = 15;
-var current_time:float = max_time;
+var max_time:float;
+var current_time:float;
+var broken:bool = false;
+@onready var hourglass_sprite:Sprite2D = $HourglassSprite
+@onready var label:Label = $Label
+
+func _init(t: int = 15) -> void:
+	max_time = t;
+	current_time = t;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,10 +20,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	current_time -= delta
-	print(get_time())
+	if not broken:
+		current_time -= delta
+		broken = current_time <= 0 or current_time >= 15
+	label.text = get_text()
 
-func get_time() -> String:
+func get_text() -> String:
+	if broken:
+		return "Broken"
 	return str(snappedf(current_time, 0.1)  	)
 
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
@@ -25,4 +38,4 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void
 
 func _flip() -> void:
 	target_rotation += PI
-	create_tween().tween_property(self, "rotation", target_rotation, 0.25).set_trans(Tween.TRANS_QUART)
+	create_tween().tween_property(hourglass_sprite, "rotation", target_rotation, 0.25).set_trans(Tween.TRANS_QUART)

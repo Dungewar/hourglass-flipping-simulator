@@ -11,10 +11,19 @@ script = ExtResource("1_lngjq")
 metadata/_custom_type_script = "uid://bv7r84spx6df0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356531494]
-position = Vector2(13.375, 2.75)
 shape = SubResource("RectangleShape2D_j7wrs")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=594538298]
-position = Vector2(16.999996, 5.0000076)
+[node name="HourglassSprite" type="Sprite2D" parent="." unique_id=594538298]
 scale = Vector2(0.52364856, 0.3417838)
 texture = ExtResource("2_fnpwp")
+
+[node name="Label" type="Label" parent="." unique_id=139257148]
+offset_left = -104.0
+offset_top = -37.0
+offset_right = 104.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "example"
+horizontal_alignment = 1
+vertical_alignment = 1
