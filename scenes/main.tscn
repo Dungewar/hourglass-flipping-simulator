@@ -1,16 +1,8 @@
-[gd_scene format=3 uid="uid://bb60fhwm3at2i"]
+[gd_scene format=3 uid="uid://d2kjswn5qfl6o"]
 
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://cv0wue3e7ub8l" path="res://scripts/hourglass_spawner.gd" id="1_o5qli"]
 
-[node name="Node2D" type="Node2D" unique_id=2108806853]
+[node name="Main" type="Node2D" unique_id=603821613]
 script = ExtResource("1_o5qli")
-=======
-[ext_resource type="PackedScene" uid="uid://byxya6mms46ma" path="res://objects/hourglass.tscn" id="1_o5qli"]
 
-[node name="Node2D" type="Node2D" unique_id=2108806853]
-
-[node name="Hourglass" parent="." unique_id=54489162 instance=ExtResource("1_o5qli")]
->>>>>>> d7c3209f8fd09fb4304f0b95a2a31a654097da09
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=775903428]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1223480653]

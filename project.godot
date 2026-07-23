@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTK Game"
-run/main_scene="uid://bb60fhwm3at2i"
+run/main_scene="uid://d2kjswn5qfl6o"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
