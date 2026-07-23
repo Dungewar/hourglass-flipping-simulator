@@ -3,12 +3,12 @@ extends Node2D
 var hourglass_scene: PackedScene = preload("res://objects/hourglass.tscn")
 var time: float = 0
 var last_spawned: int = 0
-@export var max_spawns: int = 4
+@export var max_spawns: int = 6
 @export var spawn_interval: int = 3
 var hourglass_list: Array[Hourglass] = []
 
 # Graphics
-var hourglass_width = 300
+var hourglass_width = 200
 var hourglass_start_position = -500
 
 func _ready():
