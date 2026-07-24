@@ -6,7 +6,7 @@
 [node name="Minigame" type="Node2D" unique_id=170504346]
 script = ExtResource("1_xle6j")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1059220504]
+[node name="Background" type="Sprite2D" parent="." unique_id=1059220504]
 texture = ExtResource("2_e40lv")
 
 [node name="CloseButton" type="Button" parent="." unique_id=1560677427]
