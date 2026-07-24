@@ -40,7 +40,12 @@ func add_hourglass(minigame_event: MinigameEvent = null):
 
 func remove_hourglass(hourglass: Hourglass):
 	hourglass_list.erase(hourglass)
-	
 	hourglass.queue_free()
+	
+	# shift hourglasses to the left
+	for i in range(0, hourglass_list.size()):
+		var target_position: Vector2 = Vector2(hourglass_start_position + hourglass_width * i, 0)
+		create_tween().tween_property(hourglass_list.get(i), "position", target_position, 0.5).set_trans(Tween.TRANS_QUART)
+	
 	#if hourglass_list.size() > 0:
 		#hourglass_list.pop_back()

@@ -11,7 +11,7 @@ func _ready() -> void:
 func trigger(game_player: GamePlayer):
 	super(game_player)
 	
-	hourglass_spawner.add_hourglass(true, self)
+	hourglass_spawner.add_hourglass(self)
 
 func complete(is_successful: bool = true):
 	if is_successful:

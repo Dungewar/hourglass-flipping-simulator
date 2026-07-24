@@ -49,7 +49,10 @@ func _button_pressed():
 func _process(delta: float) -> void:
 	if not broken:
 		current_time -= delta
-		broken = current_time <= 0 or current_time >= 15
+		if current_time <= 0 or current_time >= 15: # Broken
+			# trigger_hourglass_breaking()
+			broken = true
+			GM.game_player.hourglass_broke(self)
 	label.text = get_text()
 
 func get_text() -> String:

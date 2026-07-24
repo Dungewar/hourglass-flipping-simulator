@@ -18,3 +18,6 @@ func _process(delta: float) -> void:
 	if last_event_time + event_interval > time_since_start:
 		last_event_time = time_since_start
 		# trigger random event
+
+func hourglass_broke(hourglass: Hourglass):
+	GM.houglass_spawner.remove_hourglass(hourglass)

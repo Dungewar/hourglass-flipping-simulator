@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://d2kjswn5qfl6o"]
 
+[ext_resource type="Script" uid="uid://ca6a5cps5di55" path="res://scripts/game_player.gd" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://cv0wue3e7ub8l" path="res://scripts/hourglass_spawner.gd" id="1_o5qli"]
 
 [node name="Main" type="Node2D" unique_id=603821613]
-script = ExtResource("1_o5qli")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1223480653]
+
+[node name="GamePlayer" type="Node" parent="." unique_id=397015393]
+script = ExtResource("1_0wfyh")
+metadata/_custom_type_script = "uid://ca6a5cps5di55"
+
+[node name="HourglassSpawner" type="Node2D" parent="." unique_id=1162709628]
+script = ExtResource("1_o5qli")
+metadata/_custom_type_script = "uid://cv0wue3e7ub8l"
