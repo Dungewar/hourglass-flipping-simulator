@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 func open_minigame():
+	print('showing')
 	self.show()
 	for child in self.get_children():
 		child.show()

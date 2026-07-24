@@ -19,13 +19,12 @@ func _ready():
 func _process(delta: float) -> void:
 	time += delta
 	if time > last_spawned + spawn_interval and hourglass_list.size() < max_spawns:
-		add_hourglass()
+		MinigameEvent.new().trigger()
 		last_spawned = time
 
 func add_hourglass(minigame_event: MinigameEvent = null):
 	var hourglass: Hourglass = hourglass_scene.instantiate();
 	hourglass.position = Vector2(hourglass_start_position+hourglass_width * hourglass_list.size(), 0)
-	#hourglass.set_button_visibility(true)
 	
 	hourglass.set_minigame_event(minigame_event)
 	
@@ -34,9 +33,6 @@ func add_hourglass(minigame_event: MinigameEvent = null):
 	if minigame_event:
 		hourglass.is_button_visible = true
 		hourglass.minigame_event = minigame_event
-	
-	#if RandomNumberGenerator.new().randf() > 0.5:
-		#hourglass.set_button_visibility(false)
 
 func remove_hourglass(hourglass: Hourglass):
 	hourglass_list.erase(hourglass)

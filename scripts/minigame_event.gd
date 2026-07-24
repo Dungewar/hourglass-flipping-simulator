@@ -1,17 +1,16 @@
 extends Event
 class_name MinigameEvent
 
-var hourglass_spawner: HourglassSpawner
 var minigame: Minigame
+@export var minigame_list: Array[Minigame] = []
 
 func _ready() -> void:
-	hourglass_spawner = GM.houglass_spawner
-	# Set random minigame
+	pass
 
-func trigger(game_player: GamePlayer):
-	super(game_player)
-	
-	hourglass_spawner.add_hourglass(self)
+func trigger():
+	super()
+	minigame = Minigame.new()
+	GM.houglass_spawner.add_hourglass(self)
 
 func complete(is_successful: bool = true):
 	if is_successful:
