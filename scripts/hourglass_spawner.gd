@@ -26,6 +26,8 @@ func add_hourglass():
 	hourglass.position = Vector2(hourglass_start_position+hourglass_width * hourglass_list.size(), 0)
 	hourglass_list.append(hourglass)
 	add_child(hourglass)
+	if RandomNumberGenerator.new().randf() > 0.5:
+		hourglass.set_button_visibility(false)
 
 func remove_hourglass():
 	if hourglass_list.size() > 0:
