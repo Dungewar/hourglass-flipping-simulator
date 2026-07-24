@@ -14,7 +14,6 @@ var hourglass_start_position = -500
 func _ready():
 	GM.houglass_spawner = self
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time += delta
@@ -27,8 +26,7 @@ func add_hourglass():
 	hourglass.position = Vector2(hourglass_start_position+hourglass_width * hourglass_list.size(), 0)
 	hourglass_list.append(hourglass)
 	add_child(hourglass)
-	
-	
+
 func remove_hourglass():
 	if hourglass_list.size() > 0:
 		hourglass_list.pop_back()
