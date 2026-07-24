@@ -1,4 +1,5 @@
 extends Node2D
+class_name HourglassSpawner
 
 var hourglass_scene: PackedScene = preload("res://objects/hourglass.tscn")
 var time: float = 0
@@ -21,13 +22,16 @@ func _process(delta: float) -> void:
 		add_hourglass()
 		last_spawned = time
 
-func add_hourglass():
-	var hourglass = hourglass_scene.instantiate();
+func add_hourglass(is_minigame_hourglass: bool = false, minigame_event: MinigameEvent = null):
+	var hourglass: Hourglass = hourglass_scene.instantiate();
 	hourglass.position = Vector2(hourglass_start_position+hourglass_width * hourglass_list.size(), 0)
+	hourglass.set_button_visibility(true)
+	hourglass.set_minigame_event(minigame_event)
+	
 	hourglass_list.append(hourglass)
 	add_child(hourglass)
-	if RandomNumberGenerator.new().randf() > 0.5:
-		hourglass.set_button_visibility(false)
+	#if RandomNumberGenerator.new().randf() > 0.5:
+		#hourglass.set_button_visibility(false)
 
 func remove_hourglass():
 	if hourglass_list.size() > 0:

@@ -1,2 +1,3 @@
 extends Node
-var houglass_spawner
+var houglass_spawner: HourglassSpawner
+var game_player: GamePlayer
