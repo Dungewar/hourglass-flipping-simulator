@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		add_hourglass()
 		last_spawned = time
 
-func add_hourglass(is_minigame_hourglass: bool = false, minigame_event: MinigameEvent = null):
+func add_hourglass(minigame_event: MinigameEvent = null):
 	var hourglass: Hourglass = hourglass_scene.instantiate();
 	hourglass.position = Vector2(hourglass_start_position+hourglass_width * hourglass_list.size(), 0)
 	#hourglass.set_button_visibility(true)
@@ -31,13 +31,16 @@ func add_hourglass(is_minigame_hourglass: bool = false, minigame_event: Minigame
 	
 	hourglass_list.append(hourglass)
 	add_child(hourglass)
-	if is_minigame_hourglass:
+	if minigame_event:
 		hourglass.is_button_visible = true
 		hourglass.minigame_event = minigame_event
 	
 	#if RandomNumberGenerator.new().randf() > 0.5:
 		#hourglass.set_button_visibility(false)
 
-func remove_hourglass():
-	if hourglass_list.size() > 0:
-		hourglass_list.pop_back()
+func remove_hourglass(hourglass: Hourglass):
+	hourglass_list.erase(hourglass)
+	
+	hourglass.queue_free()
+	#if hourglass_list.size() > 0:
+		#hourglass_list.pop_back()
