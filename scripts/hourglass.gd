@@ -8,6 +8,7 @@ var max_time:float;
 var current_time:float;
 var broken:bool = false;
 var _show_button:bool = false
+var minigame_event: MinigameEvent
 @onready var hourglass_sprite:Sprite2D = $HourglassSprite
 @onready var label:Label = $Label
 @onready var minigame_button:Button = $MinigameButton
@@ -23,6 +24,9 @@ func set_button_visibility(visible: bool) -> void:
 		minigame_button.show()
 	else:
 		minigame_button.hide()
+
+func set_minigame_event(minigame_event: MinigameEvent):
+	self.minigame_event = minigame_event
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
