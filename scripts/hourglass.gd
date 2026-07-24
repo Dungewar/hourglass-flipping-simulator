@@ -13,7 +13,6 @@ var _show_button:bool = false
 @onready var minigame_button:Button = $MinigameButton
 
 func _init(t: int = 15, show_button: bool = true) -> void:
-	print('hello i am an hourglass')
 	max_time = t;
 	current_time = t;
 	self._show_button = show_button

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://wggunled6d4v"]
+
+[ext_resource type="Script" uid="uid://cf3hdi0ftgr3w" path="res://scripts/minigame.gd" id="1_xle6j"]
+[ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="2_e40lv"]
+
+[node name="Minigame" type="Node2D" unique_id=170504346]
+script = ExtResource("1_xle6j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1059220504]
+texture = ExtResource("2_e40lv")
+
+[node name="CloseButton" type="Button" parent="." unique_id=1560677427]
+offset_left = 430.0
+offset_top = -255.0
+offset_right = 479.0
+offset_bottom = -200.0
+text = "X"
