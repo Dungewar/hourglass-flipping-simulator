@@ -3,6 +3,8 @@ class_name Minigame
 
 @onready var close_button:Button = $CloseButton
 @onready var background:Sprite2D = $Background
+var event: MinigameEvent
+
 var is_open:bool = false:
 	set(value):
 		is_open = value

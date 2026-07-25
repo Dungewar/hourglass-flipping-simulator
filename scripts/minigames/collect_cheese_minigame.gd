@@ -1,13 +1,16 @@
 extends Minigame
 class_name CollectCheeseMinigame
 
+var cheeses_required = 10
 var cheese_scene: PackedScene = preload("res://objects/collect_cheese/cheese.tscn")
 @onready var score: Label = $Score
 var time_since_spawn: float = 0
 var cheeses_collected: int = 0:
 	set(val):
 		cheeses_collected = val
-		score.text = 'Cheese collected: %d/10' % cheeses_collected
+		score.text = 'Cheese collected: %d/%d' % [cheeses_collected, cheeses_required]
+		if cheeses_collected == cheeses_required:
+			event.complete(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

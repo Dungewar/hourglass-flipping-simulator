@@ -12,6 +12,7 @@ func _ready() -> void:
 func trigger():
 	super()
 	minigame = collect_cheese_minigame_scene.instantiate()
+	minigame.event = self
 	var hourglass:Hourglass = GM.hourglass_spawner.add_hourglass()
 	hourglass.init_minigame_event(self)
 
@@ -20,4 +21,5 @@ func complete(is_successful: bool = true):
 		pass
 	else:
 		GM.game_player.hourglass_failed()
+	minigame.queue_free()
 	super(is_successful)
