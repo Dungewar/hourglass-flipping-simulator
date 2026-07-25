@@ -1,7 +1,7 @@
 extends Control
 class_name MinigameViewer
 
-@onready var sub_viewport_container:SubViewportContainer = $MarginContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/SubViewportContainer
+@onready var sub_viewport:SubViewport = $MarginContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/SubViewportContainer/SubViewport
 var minigame: Minigame = null
 
 var is_open:bool = false:
@@ -20,11 +20,11 @@ func _ready() -> void:
 
 func open_minigame(minigame1: Minigame) -> void:
 	minigame = minigame1
-	sub_viewport_container.add_child(minigame)
+	sub_viewport.add_child(minigame)
 	is_open = true
 
 func close_current_minigame() -> void:
-	sub_viewport_container.remove_child(minigame)
+	sub_viewport.remove_child(minigame)
 	minigame = null
 	is_open = false
 

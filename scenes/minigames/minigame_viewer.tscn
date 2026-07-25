@@ -71,8 +71,8 @@ handle_input_locally = false
 size = Vector2i(1480, 780)
 render_target_update_mode = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/SubViewportContainer" unique_id=2085165822]
-position = Vector2(738.49994, 390.37494)
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/SubViewportContainer/SubViewport" unique_id=2085165822]
+position = Vector2(1059, 474)
 scale = Vector2(1.4672619, 1.4163651)
 texture = ExtResource("3_qw20g")
 
