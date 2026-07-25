@@ -2,13 +2,19 @@ extends Minigame
 class_name CollectCheeseMinigame
 
 var cheese_scene: PackedScene = preload("res://objects/collect_cheese/cheese.tscn")
-
+@onready var score: Label = $Score
 var time_since_spawn: float = 0
+var cheeses_collected: int = 0:
+	set(val):
+		cheeses_collected = val
+		score.text = 'Cheese collected: %d/10' % cheeses_collected
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not is_open:
+		return
 	time_since_spawn += delta
-	if time_since_spawn > 2:
+	if time_since_spawn > 0.5:
 		spawn_cheese()
 		time_since_spawn = 0
 
@@ -16,8 +22,17 @@ func spawn_cheese():
 	print('spawning')
 	var cheese: Cheese = cheese_scene.instantiate()
 	add_child(cheese)
-	var screen_size = get_viewport_rect().size
-	cheese.position = Vector2(randf_range(0.0, screen_size.x), randf_range(0.0, screen_size.y))
+	cheese.minigame = self
+	
+	var camera = get_viewport().get_camera_2d()
+	if camera:
+		var size = get_viewport_rect().size * camera.zoom
+		var top_left = camera.global_position - size / 2.0
+		cheese.global_position = Vector2(
+			randf_range(top_left.x, top_left.x + size.x),
+			randf_range(top_left.y, top_left.y + size.y)
+		)
+	#cheese.position = Vector2(100, 100)
 
 func on_collect(cheese: Cheese):
-	print('collected')
+	cheeses_collected += 1

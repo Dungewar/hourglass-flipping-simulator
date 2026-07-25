@@ -49,7 +49,7 @@ func _ready() -> void:
 	minigame_button.connect("button_up", _button_pressed)
 
 func _button_pressed():
-	minigame_event.minigame.open_minigame()
+	minigame_event.minigame.is_open = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

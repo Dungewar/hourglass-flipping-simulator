@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://db3wl4qicr3a8"]
 
 [ext_resource type="Script" uid="uid://bbji6l4tfdo6r" path="res://scripts/minigames/cheese.gd" id="1_qlsck"]
+[ext_resource type="Texture2D" uid="uid://tvupsf8cersb" path="res://assets/cheese.png" id="2_smp72"]
 
-[node name="Cheese" type="Node2D" unique_id=375365713]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_e62pm"]
+points = PackedVector2Array(-489, -3, 260, -366, 461, -148, 437, 272, -489, 369)
+
+[node name="Cheese" type="Area2D" unique_id=1362028287]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_qlsck")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=659016651]
+texture = ExtResource("2_smp72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2142587667]
+shape = SubResource("ConvexPolygonShape2D_e62pm")
