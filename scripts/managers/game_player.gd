@@ -9,7 +9,7 @@ var time_since_start: float = 0
 @export var hourglass_max_spawns: int = 6
 @export var hourglass_spawn_interval: int = 3
 var last_event_time: float = 0
-var hourglass_last_spawn_time: float = 0
+
 var hourglass_list: Array[Hourglass] = []
 
 # Called when the node enters the scene tree for the first time.
@@ -20,12 +20,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_since_start += delta
-	if last_event_time + event_interval > time_since_start:
+	if last_event_time + event_interval > time_since_start and hourglass_list.size() < hourglass_max_spawns:
 		last_event_time = time_since_start
-	
-	if time_since_start > hourglass_last_spawn_time + hourglass_spawn_interval and hourglass_list.size() < hourglass_max_spawns:
 		MinigameEvent.new().trigger()
-		hourglass_last_spawn_time = time_since_start
+		
 
 func hourglass_broke(hourglass: Hourglass):
 	GM.hourglass_spawner.remove_hourglass(hourglass)
@@ -35,9 +33,9 @@ func hourglass_broke(hourglass: Hourglass):
 
 func _on_main_menu_button_pressed() -> void:
 	print("Going to the main menu...")
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/main_menu_screen.tscn")
 
 
 func _on_retry_button_pressed() -> void:
 	print("Restarting game...")
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/game.tscn")

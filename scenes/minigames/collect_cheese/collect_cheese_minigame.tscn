@@ -3,13 +3,16 @@
 [ext_resource type="Script" uid="uid://kdep3opknss1" path="res://scripts/minigames/collect_cheese_minigame.gd" id="1_7hgj6"]
 [ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="2_b67ct"]
 
-[node name="CollectCheeseMinigame" type="Node2D" unique_id=267102304]
+[node name="CollectCheeseMinigame" type="Control" unique_id=1163613686]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_7hgj6")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1313704053]
 texture = ExtResource("2_b67ct")
 
 [node name="CloseButton" type="Button" parent="." unique_id=1475297931]
+layout_mode = 0
 offset_left = 430.0
 offset_top = -255.0
 offset_right = 479.0
@@ -17,6 +20,7 @@ offset_bottom = -200.0
 text = "X"
 
 [node name="Score" type="Label" parent="." unique_id=219454039]
+layout_mode = 0
 offset_left = -481.0
 offset_top = -254.0
 offset_right = -223.0

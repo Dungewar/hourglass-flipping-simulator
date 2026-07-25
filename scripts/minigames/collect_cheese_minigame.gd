@@ -2,7 +2,7 @@ extends Minigame
 class_name CollectCheeseMinigame
 
 var cheeses_required = 10
-var cheese_scene: PackedScene = preload("res://objects/collect_cheese/cheese.tscn")
+var cheese_scene: PackedScene = preload("res://scenes/minigames/collect_cheese/cheese.tscn")
 @onready var score: Label = $Score
 var time_since_spawn: float = 0
 var cheeses_collected: int = 0:

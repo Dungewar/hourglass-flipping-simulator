@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://wggunled6d4v"]
 
-[ext_resource type="Script" uid="uid://cf3hdi0ftgr3w" path="res://scripts/minigames/minigame.gd" id="1_xle6j"]
-[ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="2_e40lv"]
-[ext_resource type="Theme" uid="uid://b3klx57slj0l3" path="res://assets/soft_retro_theme/soft_retro.tres" id="3_o66pe"]
-[ext_resource type="Texture2D" uid="uid://tvupsf8cersb" path="res://assets/cheese.png" id="4_37dyb"]
+[ext_resource type="Script" uid="uid://cf3hdi0ftgr3w" path="res://scripts/minigames/minigame.gd" id="1_pkwjs"]
+[ext_resource type="Theme" uid="uid://b3klx57slj0l3" path="res://assets/soft_retro_theme/soft_retro.tres" id="2_vhp6u"]
+[ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="3_qw20g"]
 
 [node name="Minigame" type="Control" unique_id=1675238572]
 layout_mode = 3
@@ -12,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xle6j")
+script = ExtResource("1_pkwjs")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2063487035]
 layout_mode = 1
@@ -39,13 +38,13 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme = ExtResource("3_o66pe")
+theme = ExtResource("2_vhp6u")
 text = "X"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=866589189]
 visible = false
 layout_mode = 2
-texture = ExtResource("2_e40lv")
+texture = ExtResource("3_qw20g")
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=622759557]
 custom_minimum_size = Vector2(1500, 800)
@@ -71,15 +70,5 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(1480, 780)
 render_target_update_mode = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/SubViewportContainer/SubViewport" unique_id=1318683484]
-position = Vector2(1761.5, 421.5)
-texture = ExtResource("4_37dyb")
-
-[node name="Camera2D" type="Camera2D" parent="MarginContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/SubViewportContainer/SubViewport" unique_id=1749298868]
-position = Vector2(1792, 525)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=629559222]
-position = Vector2(997, 523)
 
 [connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

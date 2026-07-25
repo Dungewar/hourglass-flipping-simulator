@@ -1,7 +1,7 @@
 extends Node2D
 class_name HourglassSpawner
 
-var hourglass_scene: PackedScene = preload("res://objects/hourglass.tscn")
+var hourglass_scene: PackedScene = preload("res://scenes/objects/hourglass.tscn")
 
 # Graphics
 var hourglass_width = 200

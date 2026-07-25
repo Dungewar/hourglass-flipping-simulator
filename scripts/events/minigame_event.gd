@@ -1,8 +1,8 @@
 extends Event
 class_name MinigameEvent
 
-var minigame_scene: PackedScene = preload("res://objects/minigame.tscn")
-var collect_cheese_minigame_scene: PackedScene = preload("res://objects/collect_cheese/collect_cheese_minigame.tscn")
+var minigame_scene: PackedScene = preload("res://scenes/minigames/minigame_viewer.tscn")
+var collect_cheese_minigame_scene: PackedScene = preload("res://scenes/minigames/collect_cheese/collect_cheese_minigame.tscn")
 var minigame: Minigame
 @export var minigame_list: Array[Minigame] = []
 
