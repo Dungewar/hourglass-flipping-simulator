@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bccbqfpe246el"]
-
-[ext_resource type="Script" uid="uid://kdep3opknss1" path="res://scripts/minigames/collect_cheese_minigame.gd" id="1_3kwvp"]
-
-[node name="CollectCheeseMinigame" type="Node2D" unique_id=267102304]
-script = ExtResource("1_3kwvp")

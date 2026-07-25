@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byxya6mms46ma"]
 
-[ext_resource type="Script" uid="uid://bv7r84spx6df0" path="res://scripts/hourglass.gd" id="1_lngjq"]
+[ext_resource type="Script" uid="uid://bv7r84spx6df0" path="res://scripts/hourglass/hourglass.gd" id="1_lngjq"]
 [ext_resource type="Texture2D" uid="uid://bactnbgq31knc" path="res://assets/hourglass.png" id="2_fnpwp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wrs"]
