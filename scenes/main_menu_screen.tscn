@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://csu38yll51gx4"]
+
+[ext_resource type="Theme" uid="uid://b3klx57slj0l3" path="res://assets/soft_retro_theme/soft_retro.tres" id="1_0ad5b"]
+
+[node name="MainMenuScreen" type="Control" unique_id=982620950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=792692921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=371268974]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_0ad5b")
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=555174528]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_0ad5b")
+text = "Play Game"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1403707828]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_0ad5b")
+text = "Options"
