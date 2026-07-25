@@ -8,7 +8,7 @@ class_name Hourglass
 # time and rotation stuff
 @export var required_holding_time: float = 3
 static var DEFAULT_TIME:int = 0
-var max_time:float = 15
+var max_time:float = 30
 var current_time:float = max_time
 var hold_duration: float = 0
 var last_good_rotation: float = 0

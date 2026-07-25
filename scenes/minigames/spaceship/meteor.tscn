@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dleqvmgkyvly3"]
+
+[ext_resource type="Script" uid="uid://tsp76mnqbejk" path="res://scripts/minigames/spaceship/meteor.gd" id="1_buevd"]
+[ext_resource type="Texture2D" uid="uid://cr8v2nsgs2anj" path="res://assets/asteroid.png" id="2_wkt4l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yku4"]
+radius = 24.0
+
+[node name="Meteor" type="CharacterBody2D" unique_id=371414160]
+script = ExtResource("1_buevd")
+metadata/_custom_type_script = "uid://tsp76mnqbejk"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=795845295]
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_wkt4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1308113926]
+shape = SubResource("CircleShape2D_1yku4")

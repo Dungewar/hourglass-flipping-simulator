@@ -26,8 +26,8 @@ func _process(_delta):
 	#print("Viewport:", sub_viewport.size)
 	#print(sub_viewport_container.stretch)
 
-func open_minigame(minigame1: Minigame) -> void:
-	minigame = minigame1
+func open_minigame(minigame_to_open: Minigame) -> void:
+	minigame = minigame_to_open
 	sub_viewport.add_child(minigame)
 	is_open = true
 
