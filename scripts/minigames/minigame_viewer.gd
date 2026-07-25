@@ -2,6 +2,8 @@ extends Control
 class_name MinigameViewer
 
 @onready var sub_viewport:SubViewport = $MarginContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/SubViewportContainer/SubViewport
+@onready var sub_viewport_container:SubViewportContainer = $MarginContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/SubViewportContainer
+
 var minigame: Minigame = null
 
 var is_open:bool = false:
@@ -17,6 +19,12 @@ var is_open:bool = false:
 func _ready() -> void:
 	is_open = false
 	GM.minigame_viewer = self
+
+func _process(_delta):
+	sub_viewport.size = Vector2i(320, 180)
+	#print("Container:", sub_viewport_container.size)
+	#print("Viewport:", sub_viewport.size)
+	#print(sub_viewport_container.stretch)
 
 func open_minigame(minigame1: Minigame) -> void:
 	minigame = minigame1

@@ -1,16 +1,24 @@
 [gd_scene format=3 uid="uid://bccbqfpe246el"]
 
 [ext_resource type="Script" uid="uid://kdep3opknss1" path="res://scripts/minigames/collect_cheese_minigame.gd" id="1_7hgj6"]
+[ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="2_pfsa0"]
 
 [node name="CollectCheeseMinigame" type="Node2D" unique_id=160514485]
 script = ExtResource("1_7hgj6")
 
 [node name="Score" type="Label" parent="." unique_id=219454039]
-offset_left = 18.0
-offset_top = 31.0
-offset_right = 276.0
-offset_bottom = 87.0
+offset_left = -129.0
+offset_top = -30.0
+offset_right = 129.0
+offset_bottom = 26.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
 text = "click the cheeses!"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=908041878]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=89282068]
+z_index = -1
+position = Vector2(0.999999, -0.99999994)
+scale = Vector2(1.889385, 1.9613472)
+texture = ExtResource("2_pfsa0")

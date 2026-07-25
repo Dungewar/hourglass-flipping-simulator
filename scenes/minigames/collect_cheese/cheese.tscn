@@ -11,7 +11,10 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("1_qlsck")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=659016651]
+scale = Vector2(0.8978032, 0.8871989)
 texture = ExtResource("2_smp72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2142587667]
 shape = SubResource("ConvexPolygonShape2D_e62pm")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

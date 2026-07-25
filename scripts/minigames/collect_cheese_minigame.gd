@@ -13,7 +13,7 @@ var cheeses_collected: int = 0:
 			finish()
 
 func _process(delta: float) -> void:
-	if GM.minigame_viewer.minigame != self or not GM.minigame_viewer.is_open:
+	if GM.minigame_viewer and (GM.minigame_viewer.minigame != self or not GM.minigame_viewer.is_open):
 		return
 	time_since_spawn += delta
 	if time_since_spawn > 0.5:
