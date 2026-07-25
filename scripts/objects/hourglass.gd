@@ -33,12 +33,6 @@ func _ready() -> void:
 			if child is Rock:
 				child.queue_free()
 
-func init(minigame1: Minigame=null, position1: Vector2=Vector2(100,100)):
-	minigame = minigame1
-	minigame.init(self)
-	is_button_visible = (minigame != null)
-	position = position1
-
 func _on_minigame_button_pressed() -> void:
 	GM.minigame_viewer.open_minigame(minigame)
 

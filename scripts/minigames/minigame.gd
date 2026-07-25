@@ -3,9 +3,6 @@ class_name Minigame
 
 var hourglass: Hourglass
 
-func init(hourglass1: Hourglass) -> void:
-	hourglass = hourglass1
-
 func _ready() -> void:
 	pass
 
