@@ -18,9 +18,5 @@ var is_open:bool = false:
 func _ready() -> void:
 	is_open = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _on_close_button_pressed() -> void:
 	is_open = false

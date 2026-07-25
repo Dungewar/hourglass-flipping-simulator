@@ -10,10 +10,6 @@ var hourglass_start_position = -500
 func _ready():
 	GM.hourglass_spawner = self
 
-func _process(delta: float) -> void:
-	# moved test hourglass spawning to game_player.gd
-	pass
-
 func add_hourglass() -> Hourglass:
 	var hourglass: Hourglass = hourglass_scene.instantiate();
 	hourglass.position = Vector2(hourglass_start_position+hourglass_width * GM.game_player.hourglass_list.size(), 0)

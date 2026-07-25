@@ -37,5 +37,5 @@ func spawn_cheese():
 		)
 	#cheese.position = Vector2(100, 100)
 
-func on_collect(cheese: Cheese):
+func on_collect():
 	cheeses_collected += 1

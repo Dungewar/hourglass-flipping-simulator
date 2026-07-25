@@ -38,8 +38,8 @@ var minigame_event: MinigameEvent
 	#else:
 		#minigame_button.hide()
 
-func init_minigame_event(minigame_event: MinigameEvent):
-	self.minigame_event = minigame_event
+func init_minigame_event(new_minigame_event: MinigameEvent):
+	minigame_event = new_minigame_event
 	is_button_visible = true
 	GM.add_child(minigame_event.minigame)
 
@@ -79,7 +79,7 @@ func get_text() -> String:
 		return "Broken"
 	return str(snappedf(current_time, 0.1))
 
-func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.is_pressed():
