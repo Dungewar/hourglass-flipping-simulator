@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://co3i0ow88qnnj"]
+
+[ext_resource type="Texture2D" uid="uid://pkbcgweenmay" path="res://assets/rocks.png" id="1_2dker"]
+[ext_resource type="Script" uid="uid://bn1maarux50fj" path="res://scripts/objects/rock.gd" id="2_7c88i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwy3c"]
+radius = 48.0
+height = 160.0
+
+[node name="Rock" type="Node2D" unique_id=33618992]
+script = ExtResource("2_7c88i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1716564152]
+texture = ExtResource("1_2dker")
+region_enabled = true
+region_rect = Rect2(237.78027, 381.43015, 175.86447, 112.56146)
+
+[node name="DragButton" type="Button" parent="Sprite2D" unique_id=323233005]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -88.0
+offset_top = -56.0
+offset_right = 88.0
+offset_bottom = 56.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=420922165]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=55303126]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_qwy3c")
+
+[connection signal="button_down" from="Sprite2D/DragButton" to="." method="_on_drag_button_button_down"]
+[connection signal="button_up" from="Sprite2D/DragButton" to="." method="_on_drag_button_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

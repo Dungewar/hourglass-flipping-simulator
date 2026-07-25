@@ -7,7 +7,7 @@ var hourglass_list: Array[Hourglass] = []
 var hourglass_scene: PackedScene = preload("res://scenes/objects/hourglass.tscn")
 
 # Graphics
-var hourglass_width = 200
+var hourglass_width = 350
 var hourglass_start_position = -500
 
 func _ready():
