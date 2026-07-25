@@ -49,5 +49,6 @@ offset_top = -176.0
 offset_right = 112.0
 offset_bottom = 184.0
 
+[connection signal="pressed" from="MinigameButton" to="." method="_on_minigame_button_pressed"]
 [connection signal="button_down" from="FlippingButton" to="." method="_on_flipping_button_button_down"]
 [connection signal="button_up" from="FlippingButton" to="." method="_on_flipping_button_button_up"]

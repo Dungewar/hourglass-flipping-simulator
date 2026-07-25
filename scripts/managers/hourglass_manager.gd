@@ -18,9 +18,9 @@ func can_spawn():
 
 func add_hourglass(minigame: Minigame = null) -> Hourglass:
 	var hourglass: Hourglass = hourglass_scene.instantiate();
+	add_child(hourglass)
 	hourglass.init(minigame, Vector2(hourglass_start_position+hourglass_width * hourglass_list.size(), 0))
 	hourglass_list.append(hourglass)
-	add_child(hourglass)
 	return hourglass
 
 func remove_hourglass(hourglass: Hourglass):

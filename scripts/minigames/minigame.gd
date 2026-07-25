@@ -11,3 +11,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	pass
+
+func finish():
+	GM.minigame_viewer.close_current_minigame()
+	queue_free()

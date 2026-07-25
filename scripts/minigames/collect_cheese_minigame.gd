@@ -10,11 +10,10 @@ var cheeses_collected: int = 0:
 		cheeses_collected = val
 		score.text = 'Cheese collected: %d/%d' % [cheeses_collected, cheeses_required]
 		if cheeses_collected == cheeses_required:
-			# TODO: trigger event
-			queue_free()
+			finish()
 
 func _process(delta: float) -> void:
-	if not viewer.is_open:
+	if GM.minigame_viewer.minigame != self or not GM.minigame_viewer.is_open:
 		return
 	time_since_spawn += delta
 	if time_since_spawn > 0.5:
@@ -22,7 +21,6 @@ func _process(delta: float) -> void:
 		time_since_spawn = 0
 
 func spawn_cheese():
-	print('spawning')
 	var cheese: Cheese = cheese_scene.instantiate()
 	add_child(cheese)
 	cheese.minigame = self
@@ -37,4 +35,5 @@ func spawn_cheese():
 		)
 
 func on_collect():
+	print('collect')
 	cheeses_collected += 1

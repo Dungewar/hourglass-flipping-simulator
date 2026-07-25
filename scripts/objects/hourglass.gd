@@ -1,34 +1,33 @@
 extends Area2D
 class_name Hourglass
 
+@onready var hourglass_sprite:Sprite2D = $HourglassSprite
+@onready var label:Label = $Label
+@onready var minigame_button:Button = $MinigameButton
+
+# time and rotation stuff
+@export var required_holding_time: float = 3
 static var DEFAULT_TIME:int = 0
-var current_time:float = max_time
 var max_time:float = 15
-var working:bool = true
-var is_being_held: bool = false
+var current_time:float = max_time
 var hold_duration: float = 0
 var last_good_rotation: float = 0
-
+var is_being_held: bool = false
 var target_rotation: float = 0.0
-var broken:bool = false
+
+var working:bool = true
+
+var minigame: Minigame
+
 var is_button_visible:bool:
 	set(value):
 		is_button_visible = value
-		
 		if is_button_visible:
 			minigame_button.show()
 		else:
 			minigame_button.hide()
-		
-@onready var hourglass_sprite:Sprite2D = $HourglassSprite
-@onready var label:Label = $Label
-@onready var minigame_button:Button = $MinigameButton
-@export var required_holding_time: float = 3
-var minigame: Minigame
 
 func _ready() -> void:
-	is_button_visible = false
-	minigame_button.connect("button_up", _button_pressed)
 	if randf() > 0.5:
 		for child in get_children():
 			if child is Rock:
@@ -36,6 +35,7 @@ func _ready() -> void:
 
 func init(minigame1: Minigame=null, position1: Vector2=Vector2(100,100)):
 	minigame = minigame1
+	is_button_visible = (minigame != null)
 	position = position1
 
 func _on_minigame_button_pressed() -> void:
@@ -44,8 +44,7 @@ func _on_minigame_button_pressed() -> void:
 func _process(delta: float) -> void:
 	if working:
 		current_time += -cos(fmod(hourglass_sprite.rotation, PI))*delta
-		if current_time <= 0: # Broken
-			# trigger_hourglass_breaking()
+		if current_time < 0: # Broken
 			working = false
 			GM.game_player.hourglass_broke(self)
 	label.text = get_text()

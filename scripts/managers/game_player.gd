@@ -6,6 +6,8 @@ var time_since_start: float = 0
 @export var event_interval: float = 1
 @export var game_over_screen: Node2D
 
+@onready var collect_cheese_minigame_scene = preload("res://scenes/minigames/collect_cheese/collect_cheese_minigame.tscn")
+
 var last_event_time: float = 0
 
 func _ready() -> void:
@@ -13,18 +15,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	time_since_start += delta
-<<<<<<< HEAD
 	if time_since_start > last_event_time + event_interval:
 		if GM.hourglass_manager.can_spawn():
 			last_event_time = time_since_start
-			GM.hourglass_manager.add_hourglass()
-=======
-	if last_event_time + event_interval > time_since_start and hourglass_list.size() < hourglass_max_spawns:
-		last_event_time = time_since_start
-		GM.hourglass_spawner.add_hourglass()
-		#MinigameEvent.new().trigger()
-		
->>>>>>> f95f8a9e82582dc98aa3a96f84d40b2ad004ac1a
+			
+			GM.hourglass_manager.add_hourglass(collect_cheese_minigame_scene.instantiate())
 
 func hourglass_broke(hourglass: Hourglass):
 	GM.hourglass_manager.remove_hourglass(hourglass)

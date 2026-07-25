@@ -21,8 +21,12 @@ func _ready() -> void:
 func open_minigame(minigame1: Minigame) -> void:
 	minigame = minigame1
 	sub_viewport_container.add_child(minigame)
+	is_open = true
 
-func _on_close_button_pressed() -> void:
+func close_current_minigame() -> void:
 	sub_viewport_container.remove_child(minigame)
 	minigame = null
 	is_open = false
+
+func _on_close_button_pressed() -> void:
+	close_current_minigame()
