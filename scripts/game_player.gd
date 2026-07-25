@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		# trigger random event
 
 func hourglass_broke(hourglass: Hourglass):
-	GM.houglass_spawner.remove_hourglass(hourglass)
+	GM.hourglass_spawner.remove_hourglass(hourglass)
 	#game_over_screen.show()
 	create_tween().tween_property(game_over_screen, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_QUART)
 

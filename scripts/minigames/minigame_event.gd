@@ -11,7 +11,7 @@ func _ready() -> void:
 func trigger():
 	super()
 	minigame = minigame_scene.instantiate()
-	var hourglass:Hourglass = GM.houglass_spawner.add_hourglass()
+	var hourglass:Hourglass = GM.hourglass_spawner.add_hourglass()
 	hourglass.init_minigame_event(self)
 
 func complete(is_successful: bool = true):
