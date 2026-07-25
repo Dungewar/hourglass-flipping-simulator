@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://byxya6mms46ma"]
 
-[ext_resource type="Script" uid="uid://bv7r84spx6df0" path="res://scripts/hourglass/hourglass.gd" id="1_lngjq"]
+[ext_resource type="Script" uid="uid://bv7r84spx6df0" path="res://scripts/objects/hourglass.gd" id="1_lngjq"]
 [ext_resource type="Texture2D" uid="uid://bactnbgq31knc" path="res://assets/hourglass.png" id="2_fnpwp"]
+[ext_resource type="PackedScene" uid="uid://co3i0ow88qnnj" path="res://scenes/objects/rock.tscn" id="3_oeq40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wrs"]
-size = Vector2(339.25, 394.5)
+size = Vector2(168, 552)
 
 [node name="Hourglass" type="Area2D" unique_id=54489162]
 script = ExtResource("1_lngjq")
@@ -12,10 +13,12 @@ required_holding_time = 1.5
 metadata/_custom_type_script = "uid://bv7r84spx6df0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356531494]
+position = Vector2(-4, -348)
 shape = SubResource("RectangleShape2D_j7wrs")
 
 [node name="HourglassSprite" type="Sprite2D" parent="." unique_id=594538298]
-scale = Vector2(0.52364856, 0.3417838)
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(0.33000588, 0.28259656)
 texture = ExtResource("2_fnpwp")
 
 [node name="Label" type="Label" parent="." unique_id=139257148]
@@ -30,8 +33,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MinigameButton" type="Button" parent="." unique_id=2126799414]
-offset_left = -55.0
-offset_top = -212.0
-offset_right = 53.0
-offset_bottom = -176.0
+offset_left = -56.0
+offset_top = 200.0
+offset_right = 52.0
+offset_bottom = 236.0
 text = "minigame"
+
+[node name="Rock" parent="." unique_id=33618992 instance=ExtResource("3_oeq40")]
+position = Vector2(0, -200)
+
+[node name="FlippingButton" type="Button" parent="." unique_id=1994046709]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -120.0
+offset_top = -176.0
+offset_right = 112.0
+offset_bottom = 184.0
+
+[connection signal="button_down" from="FlippingButton" to="." method="_on_flipping_button_button_down"]
+[connection signal="button_up" from="FlippingButton" to="." method="_on_flipping_button_button_up"]

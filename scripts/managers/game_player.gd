@@ -22,7 +22,8 @@ func _process(delta: float) -> void:
 	time_since_start += delta
 	if last_event_time + event_interval > time_since_start and hourglass_list.size() < hourglass_max_spawns:
 		last_event_time = time_since_start
-		MinigameEvent.new().trigger()
+		GM.hourglass_spawner.add_hourglass()
+		#MinigameEvent.new().trigger()
 		
 
 func hourglass_broke(hourglass: Hourglass):
