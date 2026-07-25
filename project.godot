@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GMTK Game"
+config/name="Hourglass Flipping Simulator"
 run/main_scene="uid://csu38yll51gx4"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
