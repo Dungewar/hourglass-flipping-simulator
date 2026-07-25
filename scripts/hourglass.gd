@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		create_tween().tween_property(hourglass_sprite, "rotation", target_rotation, delta).set_trans(Tween.TRANS_QUART)
 		
 		if hold_duration > required_holding_time:
-			last_good_rotation = target_rotation
+			last_good_rotation = hourglass_sprite.rotation
 			print(last_good_rotation)
 			current_time = max_time - current_time
 			hold_duration = 0

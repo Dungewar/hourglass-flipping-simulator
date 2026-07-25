@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wggunled6d4v"]
 
-[ext_resource type="Script" uid="uid://cf3hdi0ftgr3w" path="res://scripts/minigame.gd" id="1_xle6j"]
+[ext_resource type="Script" uid="uid://cf3hdi0ftgr3w" path="res://scripts/minigames/minigame.gd" id="1_xle6j"]
 [ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="2_e40lv"]
 
 [node name="Minigame" type="Node2D" unique_id=170504346]
