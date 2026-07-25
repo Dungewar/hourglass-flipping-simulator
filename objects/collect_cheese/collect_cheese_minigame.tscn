@@ -16,4 +16,12 @@ offset_right = 479.0
 offset_bottom = -200.0
 text = "X"
 
+[node name="Score" type="Label" parent="." unique_id=219454039]
+offset_left = -481.0
+offset_top = -254.0
+offset_right = -223.0
+offset_bottom = -198.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "cheese"
+
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
