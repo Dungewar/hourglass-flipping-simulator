@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://db3wl4qicr3a8"]
+
+[ext_resource type="Script" uid="uid://bbji6l4tfdo6r" path="res://scripts/minigames/cheese.gd" id="1_qlsck"]
+
+[node name="Cheese" type="Node2D" unique_id=375365713]
+script = ExtResource("1_qlsck")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=659016651]

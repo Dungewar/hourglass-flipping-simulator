@@ -5,8 +5,12 @@ class_name GamePlayer
 var time_since_start: float = 0
 @export var event_interval: float = 10
 @export var game_over_screen: Node2D
-var last_event_time: float = 0
 
+@export var hourglass_max_spawns: int = 6
+@export var hourglass_spawn_interval: int = 3
+var last_event_time: float = 0
+var hourglass_last_spawn_time: float = 0
+var hourglass_list: Array[Hourglass] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +22,10 @@ func _process(delta: float) -> void:
 	time_since_start += delta
 	if last_event_time + event_interval > time_since_start:
 		last_event_time = time_since_start
-		# trigger random event
+	
+	if time_since_start > hourglass_last_spawn_time + hourglass_spawn_interval and hourglass_list.size() < hourglass_max_spawns:
+		MinigameEvent.new().trigger()
+		hourglass_last_spawn_time = time_since_start
 
 func hourglass_broke(hourglass: Hourglass):
 	GM.hourglass_spawner.remove_hourglass(hourglass)
