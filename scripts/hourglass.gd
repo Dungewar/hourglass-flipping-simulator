@@ -67,14 +67,11 @@ func _process(delta: float) -> void:
 		create_tween().tween_property(hourglass_sprite, "rotation", target_rotation, delta).set_trans(Tween.TRANS_QUART)
 		
 		if hold_duration > required_holding_time:
-			last_good_rotation = hourglass_sprite.rotation
+			last_good_rotation = snappedf(hourglass_sprite.rotation, PI)
 			print(last_good_rotation)
 			current_time = max_time - current_time
 			hold_duration = 0
-			
-	elif hold_duration > 0:
-		create_tween().tween_property(hourglass_sprite, "rotation", last_good_rotation, 0.25).set_trans(Tween.TRANS_QUART)
-		hold_duration = 0
+			# target_rotation = the other rotation
 
 func get_text() -> String:
 	if broken:
@@ -88,3 +85,6 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void
 				is_being_held = true
 			elif event.is_released():
 				is_being_held = false
+				create_tween().tween_property(hourglass_sprite, "rotation", last_good_rotation, 0.25).set_trans(Tween.TRANS_QUART)
+				target_rotation = last_good_rotation
+				hold_duration = 0
