@@ -1,7 +1,7 @@
 extends Minigame
 class_name CollectCheeseMinigame
 
-var cheeses_required = 10
+var cheeses_required = 3
 var cheese_scene: PackedScene = preload("res://scenes/minigames/collect_cheese/cheese.tscn")
 @onready var score: Label = $Score
 var time_since_spawn: float = 0
@@ -35,5 +35,5 @@ func spawn_cheese():
 		)
 
 func on_collect():
-	print('collect')
+	#print('collect')
 	cheeses_collected += 1

@@ -35,6 +35,7 @@ func _ready() -> void:
 
 func init(minigame1: Minigame=null, position1: Vector2=Vector2(100,100)):
 	minigame = minigame1
+	minigame.init(self)
 	is_button_visible = (minigame != null)
 	position = position1
 
