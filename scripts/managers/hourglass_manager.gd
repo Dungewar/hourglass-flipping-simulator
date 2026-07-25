@@ -1,7 +1,7 @@
 extends Node2D
 class_name HourglassManager
 
-@export var hourglass_max_spawns: int = 6
+@export var hourglass_max_spawns: int = 5
 @export var hourglass_spawn_interval: int = 3
 var hourglass_list: Array[Hourglass] = []
 var hourglass_scene: PackedScene = preload("res://scenes/objects/hourglass.tscn")
@@ -16,14 +16,17 @@ func _ready():
 func can_spawn():
 	return hourglass_list.size() < hourglass_max_spawns
 
-func add_hourglass(minigame: Minigame = null) -> Hourglass:
+func add_hourglass(minigame: Minigame = null, houglass_time: float = 30, has_rock: bool = false) -> Hourglass:
 	var hourglass: Hourglass = hourglass_scene.instantiate();
 	add_child(hourglass)
 	
+	hourglass.max_time = houglass_time
 	minigame.hourglass = hourglass
 	hourglass.minigame = minigame
 	hourglass.is_button_visible = (minigame != null)
 	hourglass.position = Vector2(hourglass_start_position+hourglass_width * hourglass_list.size(), 0)
+	if not has_rock:
+		hourglass.remove_rock()
 	
 	hourglass_list.append(hourglass)
 	return hourglass

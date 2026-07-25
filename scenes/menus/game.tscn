@@ -18,6 +18,8 @@ metadata/_custom_type_script = "uid://ca6a5cps5di55"
 
 [node name="HourglassSpawner" type="Node2D" parent="." unique_id=1162709628]
 script = ExtResource("2_u5cui")
+hourglass_max_spawns = 4
+hourglass_spawn_interval = 10
 metadata/_custom_type_script = "uid://cv0wue3e7ub8l"
 
 [node name="GameOverScreen" type="Node2D" parent="." unique_id=962193086]

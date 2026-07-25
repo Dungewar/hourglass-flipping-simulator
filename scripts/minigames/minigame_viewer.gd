@@ -21,7 +21,8 @@ func _ready() -> void:
 	GM.minigame_viewer = self
 
 func _process(_delta):
-	sub_viewport.size = Vector2i(320, 180)
+	pass
+	#sub_viewport.size = Vector2i(320, 180)
 	#print("Container:", sub_viewport_container.size)
 	#print("Viewport:", sub_viewport.size)
 	#print(sub_viewport_container.stretch)
@@ -31,10 +32,13 @@ func open_minigame(minigame_to_open: Minigame) -> void:
 	sub_viewport.add_child(minigame)
 	is_open = true
 
-func close_current_minigame() -> void:
-	sub_viewport.remove_child(minigame)
-	minigame = null
-	is_open = false
+func close_current_minigame() -> bool:
+	if sub_viewport.get_children().has(minigame):
+		sub_viewport.remove_child(minigame)
+		minigame = null
+		is_open = false
+		return true
+	return false
 
 func _on_close_button_pressed() -> void:
 	close_current_minigame()

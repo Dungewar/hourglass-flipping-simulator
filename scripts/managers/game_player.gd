@@ -5,6 +5,7 @@ class_name GamePlayer
 var time_since_start: float = 0
 @export var event_interval: float = 1
 @export var game_over_screen: Node2D
+@export var rock_chance: float = 0.2
 
 @onready var collect_cheese_minigame_scene = preload("res://scenes/minigames/collect_cheese/collect_cheese_minigame.tscn")
 @onready var spaceship_minigame_scene = preload("res://scenes/minigames/spaceship/spaceship_minigame.tscn")
@@ -20,9 +21,17 @@ func _process(delta: float) -> void:
 		if GM.hourglass_manager.can_spawn():
 			last_event_time = time_since_start
 			
-			GM.hourglass_manager.add_hourglass(collect_cheese_minigame_scene.instantiate())
+			var random_number = randf()
+			var will_have_rock: bool = randf() < rock_chance
+			
+			if random_number < 0.5:
+				GM.hourglass_manager.add_hourglass(collect_cheese_minigame_scene.instantiate(), 20, will_have_rock)
+			else:
+				GM.hourglass_manager.add_hourglass(spaceship_minigame_scene.instantiate(), 60, will_have_rock)
+			
 
 func hourglass_broke(hourglass: Hourglass):
+	GM.minigame_viewer.close_current_minigame()
 	GM.hourglass_manager.remove_hourglass(hourglass)
 	#game_over_screen.show()
 	create_tween().tween_property(game_over_screen, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_QUART)

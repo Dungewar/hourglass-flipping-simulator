@@ -8,12 +8,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yku4"]
 size = Vector2(128, 128)
 
-[node name="Spaceship" type="Node2D" unique_id=949863672 node_paths=PackedStringArray("victory_screen", "loss_screen")]
+[node name="Spaceship" type="Node2D" unique_id=949863672 node_paths=PackedStringArray("victory_screen", "loss_screen", "meteor_count_label")]
 script = ExtResource("1_y1l38")
-meteor_count = 100
-meteor_spawn_interval = 0.3
+meteor_count = 40
+meteor_spawn_interval = 0.2
+post_meteor_timer_until_win = 4.0
 victory_screen = NodePath("CanvasLayer/Control/VictoryScreen")
 loss_screen = NodePath("CanvasLayer/Control/RetryScreen")
+meteor_count_label = NodePath("CanvasLayer/Control/MarginContainer/VBoxContainer/DodgingTimeLeft")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=908041878]
 

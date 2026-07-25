@@ -8,7 +8,10 @@ class_name Hourglass
 # time and rotation stuff
 @export var required_holding_time: float = 3
 static var DEFAULT_TIME:int = 0
-var max_time:float = 30
+var max_time:float = 30:
+	set(value):
+		max_time = value
+		current_time = max_time
 var current_time:float = max_time
 var hold_duration: float = 0
 var last_good_rotation: float = 0
@@ -28,10 +31,7 @@ var is_button_visible:bool:
 			minigame_button.hide()
 
 func _ready() -> void:
-	if randf() > 0.5:
-		for child in get_children():
-			if child is Rock:
-				child.queue_free()
+	pass
 
 func _on_minigame_button_pressed() -> void:
 	GM.minigame_viewer.open_minigame(minigame)
@@ -60,20 +60,20 @@ func get_text() -> String:
 		return "Broken"
 	return str(snappedf(current_time, 0.1))
 
-#func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	#if event is InputEventMouseButton:
-		#if event.button_index == MOUSE_BUTTON_LEFT:
-			#if event.is_pressed():
-				#is_being_held = true
-			#elif event.is_released():
-				
-				
+
 func there_are_no_rocks_on_top() -> bool:
 	for child in get_children():
 		if child is Rock:
 			return false
 	return true
 
+# Removes 1 rock, gives true if it removed a rock
+func remove_rock() -> bool:
+	for child in get_children():
+		if child is Rock:
+			child.queue_free()
+			return true
+	return false
 
 func _on_flipping_button_button_down() -> void:
 	is_being_held = true
