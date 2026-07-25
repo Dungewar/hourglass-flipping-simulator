@@ -10,11 +10,11 @@ var cheeses_collected: int = 0:
 		cheeses_collected = val
 		score.text = 'Cheese collected: %d/%d' % [cheeses_collected, cheeses_required]
 		if cheeses_collected == cheeses_required:
-			event.complete(true)
+			# TODO: trigger event
+			queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not is_open:
+	if not viewer.is_open:
 		return
 	time_since_spawn += delta
 	if time_since_spawn > 0.5:
@@ -35,7 +35,6 @@ func spawn_cheese():
 			randf_range(top_left.x, top_left.x + size.x),
 			randf_range(top_left.y, top_left.y + size.y)
 		)
-	#cheese.position = Vector2(100, 100)
 
 func on_collect():
 	cheeses_collected += 1

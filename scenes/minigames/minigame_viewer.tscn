@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://wggunled6d4v"]
 
-[ext_resource type="Script" uid="uid://cf3hdi0ftgr3w" path="res://scripts/minigames/minigame.gd" id="1_pkwjs"]
+[ext_resource type="Script" uid="uid://cf3hdi0ftgr3w" path="res://scripts/minigames/minigame_viewer.gd" id="1_pkwjs"]
 [ext_resource type="Theme" uid="uid://b3klx57slj0l3" path="res://assets/soft_retro_theme/soft_retro.tres" id="2_vhp6u"]
 [ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="3_qw20g"]
 
-[node name="Minigame" type="Control" unique_id=1675238572]
+[node name="MinigameViewer" type="Control" unique_id=1675238572]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

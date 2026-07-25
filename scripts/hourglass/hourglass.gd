@@ -2,14 +2,14 @@ extends Area2D
 class_name Hourglass
 
 static var DEFAULT_TIME:int = 0
-
-var target_rotation: float = 0.0
-var max_time:float = 15
 var current_time:float = max_time
-var broken:bool = false
+var max_time:float = 15
 var is_being_held: bool = false
 var hold_duration: float = 0
 var last_good_rotation: float = 0
+
+var target_rotation: float = 0.0
+var broken:bool = false
 var is_button_visible:bool:
 	set(value):
 		is_button_visible = value
@@ -19,42 +19,24 @@ var is_button_visible:bool:
 		else:
 			minigame_button.hide()
 		
-
-var minigame_event: MinigameEvent
 @onready var hourglass_sprite:Sprite2D = $HourglassSprite
 @onready var label:Label = $Label
 @onready var minigame_button:Button = $MinigameButton
 @export var required_holding_time: float = 3
+var minigame: Minigame
 
-#func _init(t: int = 15, show_button: bool = true) -> void:
-	#max_time = t;
-	#current_time = t;
-	#self.is_button_visible = show_button
-#
-#func set_button_visibility(visible: bool) -> void:
-	#is_button_visible = visible
-	#if visible:
-		#minigame_button.show()
-	#else:
-		#minigame_button.hide()
-
-func init_minigame_event(new_minigame_event: MinigameEvent):
-	minigame_event = new_minigame_event
-	is_button_visible = true
-	GM.add_child(minigame_event.minigame)
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	is_button_visible = false
-	minigame_button.connect("button_up", _button_pressed)
 
-func _button_pressed():
-	minigame_event.minigame.is_open = true
+func init(minigame1: Minigame=null, position1: Vector2=Vector2(100,100)):
+	minigame = minigame1
+	position = position1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_minigame_button_pressed() -> void:
+	GM.minigame_viewer.open_minigame(minigame)
+
 func _process(delta: float) -> void:
 	if not broken:
-		
 		current_time += -cos(fmod(hourglass_sprite.rotation, PI))*delta
 		if current_time <= 0: # Broken
 			# trigger_hourglass_breaking()
@@ -72,7 +54,6 @@ func _process(delta: float) -> void:
 			print(last_good_rotation)
 			current_time = max_time - current_time
 			hold_duration = 0
-			# target_rotation = the other rotation
 
 func get_text() -> String:
 	if broken:

@@ -1,22 +1,13 @@
-extends Control
+extends Node2D
 class_name Minigame
 
-@onready var close_button:Button = $CloseButton
-@onready var background:Sprite2D = $Background
-var event: MinigameEvent
+var hourglass: Hourglass
 
-var is_open:bool = false:
-	set(value):
-		is_open = value
-		if is_open:
-			z_index = 100
-			self.show()
-		else:
-			self.hide()
+func init(hourglass1: Hourglass) -> void:
+	hourglass = hourglass1
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	is_open = true
+	pass
 
-func _on_close_button_pressed() -> void:
-	is_open = false
+func _process(_delta: float) -> void:
+	pass
