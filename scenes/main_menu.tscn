@@ -15,20 +15,16 @@ limit_bottom = 648
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=122291401]
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=731402374]
-offset_left = 184.0
-offset_top = 120.0
-offset_right = 224.0
-offset_bottom = 160.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1246512064]
+offset_left = 544.0
+offset_top = 136.0
+offset_right = 627.0
+offset_bottom = 176.0
 
-[node name="PlayGameButton" type="Button" parent="CanvasLayer" unique_id=757731533]
+[node name="PlayGameButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=757731533]
 texture_filter = 1
-offset_left = 184.0
-offset_top = 120.0
-offset_right = 274.0
-offset_bottom = 151.0
-scale = Vector2(2.3752022, 2.0172498)
+layout_mode = 2
 theme = ExtResource("3_bqqt6")
 text = "Play Game"
 
-[connection signal="pressed" from="CanvasLayer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
