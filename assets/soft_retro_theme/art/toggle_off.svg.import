@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3b0bfjeebl1a"
-path="res://.godot/imported/game_over.png-d3dc1210304ecaab7bc3f281cfa0d72f.ctex"
+uid="uid://gameaex7fm1g"
+path="res://.godot/imported/toggle_off.svg-b81037008f5fb7f30374f5e4dae9fed3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game_over.png"
-dest_files=["res://.godot/imported/game_over.png-d3dc1210304ecaab7bc3f281cfa0d72f.ctex"]
+source_file="res://assets/soft_retro_theme/art/toggle_off.svg"
+dest_files=["res://.godot/imported/toggle_off.svg-b81037008f5fb7f30374f5e4dae9fed3.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

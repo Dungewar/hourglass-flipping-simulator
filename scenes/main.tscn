@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ca6a5cps5di55" path="res://scripts/game_player.gd" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://cv0wue3e7ub8l" path="res://scripts/hourglass_spawner.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://c3b0bfjeebl1a" path="res://assets/game_over.png" id="3_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://dccobb8xknrqv" path="res://assets/retry.png" id="4_tefeu"]
-[ext_resource type="Texture2D" uid="uid://qvatyu4643c6" path="res://assets/main_menu.png" id="5_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://c3b0bfjeebl1a" path="res://assets/game_over_screen.png" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dccobb8xknrqv" path="res://assets/retry_level_button.png" id="4_tefeu"]
+[ext_resource type="Texture2D" uid="uid://qvatyu4643c6" path="res://assets/goto_main_menu_button.png" id="5_o6xl0"]
 
 [node name="Main" type="Node2D" unique_id=603821613]
 
