@@ -34,8 +34,10 @@ var minigame_event: MinigameEvent
 	#else:
 		#minigame_button.hide()
 
-func set_minigame_event(minigame_event: MinigameEvent):
+func init_minigame_event(minigame_event: MinigameEvent):
 	self.minigame_event = minigame_event
+	is_button_visible = true
+	GM.add_child(minigame_event.minigame)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

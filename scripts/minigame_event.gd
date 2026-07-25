@@ -1,6 +1,7 @@
 extends Event
 class_name MinigameEvent
 
+var minigame_scene: PackedScene = preload("res://objects/minigame.tscn")
 var minigame: Minigame
 @export var minigame_list: Array[Minigame] = []
 
@@ -9,8 +10,9 @@ func _ready() -> void:
 
 func trigger():
 	super()
-	minigame = Minigame.new()
-	GM.houglass_spawner.add_hourglass(self)
+	minigame = minigame_scene.instantiate()
+	var hourglass:Hourglass = GM.houglass_spawner.add_hourglass()
+	hourglass.init_minigame_event(self)
 
 func complete(is_successful: bool = true):
 	if is_successful:

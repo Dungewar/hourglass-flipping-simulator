@@ -6,19 +6,18 @@ class_name Minigame
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	close_button.connect("button_up", close_minigame())
+	self.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func open_minigame():
-	print('showing')
+	z_index = 100
 	self.show()
-	for child in self.get_children():
-		child.show()
 
 func close_minigame():
 	self.hide()
-	for child in self.get_children():
-		child.hide();
+
+func _on_close_button_pressed() -> void:
+	close_minigame()
