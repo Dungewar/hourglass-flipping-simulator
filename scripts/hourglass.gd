@@ -7,6 +7,9 @@ var target_rotation: float = 0.0
 var max_time:float = 15
 var current_time:float = max_time
 var broken:bool = false
+var is_being_held: bool = false
+var hold_duration: float = 0
+var last_good_rotation: float = 0
 var is_button_visible:bool:
 	set(value):
 		is_button_visible = value
@@ -21,6 +24,7 @@ var minigame_event: MinigameEvent
 @onready var hourglass_sprite:Sprite2D = $HourglassSprite
 @onready var label:Label = $Label
 @onready var minigame_button:Button = $MinigameButton
+@export var required_holding_time: float = 3
 
 #func _init(t: int = 15, show_button: bool = true) -> void:
 	#max_time = t;
@@ -54,6 +58,21 @@ func _process(delta: float) -> void:
 			broken = true
 			GM.game_player.hourglass_broke(self)
 	label.text = get_text()
+	
+	if is_being_held:
+		hold_duration += delta
+		target_rotation += PI * delta / required_holding_time
+		create_tween().tween_property(hourglass_sprite, "rotation", target_rotation, delta).set_trans(Tween.TRANS_QUART)
+		
+		if hold_duration > required_holding_time:
+			last_good_rotation = target_rotation
+			print(last_good_rotation)
+			current_time = max_time - current_time
+			hold_duration = 0
+			
+	elif hold_duration > 0:
+		create_tween().tween_property(hourglass_sprite, "rotation", last_good_rotation, 0.25).set_trans(Tween.TRANS_QUART)
+		hold_duration = 0
 
 func get_text() -> String:
 	if broken:
@@ -62,10 +81,8 @@ func get_text() -> String:
 
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			_flip()
-			current_time = max_time - current_time
-
-func _flip() -> void:
-	target_rotation += PI
-	create_tween().tween_property(hourglass_sprite, "rotation", target_rotation, 0.25).set_trans(Tween.TRANS_QUART)
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.is_pressed():
+				is_being_held = true
+			elif event.is_released():
+				is_being_held = false
