@@ -54,8 +54,9 @@ func _button_pressed():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not broken:
-		current_time -= delta
-		if current_time <= 0 or current_time >= 15: # Broken
+		
+		current_time += -cos(fmod(hourglass_sprite.rotation, PI))*delta
+		if current_time <= 0: # Broken
 			# trigger_hourglass_breaking()
 			broken = true
 			GM.game_player.hourglass_broke(self)

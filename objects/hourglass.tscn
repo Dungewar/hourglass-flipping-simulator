@@ -8,6 +8,7 @@ size = Vector2(339.25, 394.5)
 
 [node name="Hourglass" type="Area2D" unique_id=54489162]
 script = ExtResource("1_lngjq")
+required_holding_time = 1.5
 metadata/_custom_type_script = "uid://bv7r84spx6df0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356531494]
