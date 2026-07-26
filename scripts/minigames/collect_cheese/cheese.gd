@@ -15,7 +15,6 @@ func _ready() -> void:
 				#queue_free()
 
 func _physics_process(_delta: float) -> void:
-	print(get_overlapping_bodies())
 	for body in get_overlapping_bodies():
 		if body is MouseRodent:
 			minigame.on_collect()

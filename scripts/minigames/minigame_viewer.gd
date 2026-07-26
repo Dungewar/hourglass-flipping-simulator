@@ -15,17 +15,12 @@ var is_open:bool = false:
 		else:
 			self.hide()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	is_open = false
 	GM.minigame_viewer = self
 
 func _process(_delta):
 	pass
-	#sub_viewport.size = Vector2i(320, 180)
-	#print("Container:", sub_viewport_container.size)
-	#print("Viewport:", sub_viewport.size)
-	#print(sub_viewport_container.stretch)
 
 func open_minigame(minigame_to_open: Minigame) -> void:
 	minigame = minigame_to_open

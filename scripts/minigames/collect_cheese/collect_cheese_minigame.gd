@@ -18,7 +18,6 @@ var cheeses_collected: int = 0:
 			show_victory_popup()
 
 func set_params(params: Dictionary):
-	print('setting params: %s' % params)
 	if params.has('cheeses_required'):
 		self.cheeses_required = params['cheeses_required']
 	if params.has('spawn_delay'):

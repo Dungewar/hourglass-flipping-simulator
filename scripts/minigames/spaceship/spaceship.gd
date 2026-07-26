@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	#var is_within: bool = get_viewport().get_visible_rect().has_point(global_position)
 	#print("am within:", is_within)
 	if global_position.x > maximum_bound.x or global_position.x < minimum_bound.x:
-		print("Flipping X")
+		#print("Flipping X")
 		position.x *= -1
 	#if global_position.y > maximum_bound.y or global_position.y < minimum_bound.y:
 		#print("Flipping Y")

@@ -60,6 +60,11 @@ func on_hourglass_broke():
 	create_tween().tween_property(game_over_screen, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_QUART)
 
 
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ESCAPE:
+			GM.minigame_viewer.close_current_minigame()
+
 func _on_main_menu_button_pressed() -> void:
 	print("Going to the main menu...")
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu_screen.tscn")

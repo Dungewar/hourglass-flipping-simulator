@@ -10,7 +10,7 @@ func get_global_level_plans() -> Array[LevelPlan]:
 			1,
 			[
 				# spawn_time, hourglass_max_time, has_rock, minigame, minigame_params
-				HourglassSpawn.new(0, 20, false, collect_cheese_minigame_scene, {'cheeses_required': 30}),
+				HourglassSpawn.new(0, 20, false, collect_cheese_minigame_scene, {'cheeses_required': 20}),
 				HourglassSpawn.new(2, 10, false, collect_cheese_minigame_scene, {'cheeses_required': 3}),
 			],
 		),
@@ -19,7 +19,7 @@ func get_global_level_plans() -> Array[LevelPlan]:
 			[
 				# spawn_time, hourglass_max_time, has_rock, minigame, minigame_params
 				HourglassSpawn.new(0, 20, false, spaceship_minigame_scene, {'meteor_count': 10, 'meteor_spawn_interval': 0.4}),
-				HourglassSpawn.new(10, 10, false, spaceship_minigame_scene, {'meteor_count': 10, 'meteor_spawn_interval': 0.2}),
+				HourglassSpawn.new(10, 10, true, spaceship_minigame_scene, {'meteor_count': 10, 'meteor_spawn_interval': 0.2}),
 				HourglassSpawn.new(15, 10, false, spaceship_minigame_scene, {'meteor_count': 10, 'meteor_spawn_interval': 0.1}),
 			],
 		),
@@ -28,8 +28,8 @@ func get_global_level_plans() -> Array[LevelPlan]:
 			[
 				# spawn_time, hourglass_max_time, has_rock, minigame, minigame_params
 				HourglassSpawn.new(0, 20, false, spaceship_minigame_scene, {'meteor_count': 10, 'meteor_spawn_interval': 0.1}),
-				HourglassSpawn.new(5, 10, false, collect_cheese_minigame_scene, {'cheeses_required': 20}),
-				HourglassSpawn.new(10, 15, false, spaceship_minigame_scene, {'meteor_count': 10, 'meteor_spawn_interval': 0.1}),
+				HourglassSpawn.new(5, 10, true, collect_cheese_minigame_scene, {'cheeses_required': 20}),
+				HourglassSpawn.new(10, 15, true, spaceship_minigame_scene, {'meteor_count': 10, 'meteor_spawn_interval': 0.1}),
 				HourglassSpawn.new(15, 10, false, collect_cheese_minigame_scene, {'cheeses_required': 20}),
 				HourglassSpawn.new(20, 20, false, collect_cheese_minigame_scene, {'cheeses_required': 20}),
 			],

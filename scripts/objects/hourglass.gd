@@ -38,7 +38,7 @@ func _on_minigame_button_pressed() -> void:
 
 func _process(delta: float) -> void:
 	if working:
-		current_time += -cos(fmod(hourglass_sprite.rotation, PI))*delta
+		current_time += -cos(fmod(hourglass_sprite.rotation + 0.01, PI))*delta # the +0.01 prevents floating point error
 		if current_time < 0: # Broken
 			working = false
 			GM.hourglass_manager.remove_hourglass(self)

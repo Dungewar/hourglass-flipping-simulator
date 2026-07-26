@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 			spawn_meteor()
 			time_since_meteor_spawn = 0
 			meteors_spawned += 1
-			print("Spawned meteor!")
+			#print("Spawned meteor!")
 			
 	elif time_since_meteor_spawn > post_meteor_timer_until_win:
 		# you win!
