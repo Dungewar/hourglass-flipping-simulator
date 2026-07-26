@@ -34,7 +34,35 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_0ad5b")
-text = "Play Game"
+text = "Play"
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1616386203]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Level1" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=923674478]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_0ad5b")
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=398704076]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_0ad5b")
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=1673067382]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_0ad5b")
+text = "Level 3"
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1403707828]
 custom_minimum_size = Vector2(200, 60)
@@ -45,3 +73,6 @@ theme = ExtResource("1_0ad5b")
 text = "Options"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Level3" to="." method="_on_level_3_pressed"]
