@@ -3,15 +3,28 @@ class_name Spaceship
 
 @export var acceleration_factor: float = 0.5
 @export var player_size: float = 60
+@export var ship_thruster_particles: GPUParticles2D
+@export var maximum_acceleration: float = 400
+#var max_ship_thruster_particle_amount: int
+#
+#func _ready():
+	#max_ship_thruster_particle_amount = ship_thruster_particles.amount
 
 func _physics_process(delta: float) -> void:
+	
 	rotation = (get_global_mouse_position() - global_position).angle() + PI / 2
 	
 	var acceleration = (get_global_mouse_position() - position) * acceleration_factor
+	if acceleration.length() > maximum_acceleration:
+		acceleration = maximum_acceleration * acceleration.normalized()
+	#print("Acceleration: ", acceleration, " |abs|: ", acceleration.length())
 	#velocity = acceleration
 	velocity += acceleration * delta
 	#print(velocity, acceleration)
 	move_and_slide()
+	
+	#var particle_count: int = (acceleration.length() / maximum_acceleration)
+	ship_thruster_particles.amount_ratio = acceleration.length() / maximum_acceleration
 	
 	var camera_size: Vector2 = get_viewport().get_visible_rect().size
 	var camera_position: Vector2 = get_viewport().get_visible_rect().position - camera_size/2
