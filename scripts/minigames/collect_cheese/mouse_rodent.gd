@@ -6,5 +6,6 @@ func _physics_process(delta: float) -> void:
 	
 	if global_position.distance_to(mouse_pos) > 10:
 		look_at(mouse_pos)
+		rotation += PI/2
 		var direction = (mouse_pos - global_position).normalized()
 		global_position += direction * get_parent().mouse_speed * delta
