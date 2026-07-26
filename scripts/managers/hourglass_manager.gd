@@ -16,12 +16,20 @@ func _ready():
 func can_spawn():
 	return hourglass_list.size() < hourglass_max_spawns
 
-func add_hourglass(minigame: Minigame = null, houglass_time: float = 30, has_rock: bool = false) -> Hourglass:
+func add_hourglass(
+	minigame_scene: PackedScene = null,
+	houglass_time: float = 30,
+	has_rock: bool = false,
+	minigame_params: Dictionary = {},
+) -> Hourglass:
+	var minigame: Minigame = minigame_scene.instantiate()
 	var hourglass: Hourglass = hourglass_scene.instantiate();
 	add_child(hourglass)
 	
-	hourglass.max_time = houglass_time
 	minigame.hourglass = hourglass
+	minigame.set_params(minigame_params)
+	
+	hourglass.max_time = houglass_time
 	hourglass.minigame = minigame
 	hourglass.is_button_visible = (minigame != null)
 	hourglass.position = Vector2(hourglass_start_position+hourglass_width * hourglass_list.size(), 0)
@@ -34,6 +42,7 @@ func add_hourglass(minigame: Minigame = null, houglass_time: float = 30, has_roc
 func remove_hourglass(hourglass: Hourglass):
 	hourglass_list.erase(hourglass)
 	hourglass.queue_free()
+	GM.game_player.on_hourglass_cleared()
 	
 	# shift hourglasses to the left
 	for i in range(0, hourglass_list.size()):

@@ -7,6 +7,9 @@ var hourglass: Hourglass
 func init(hourglass1: Hourglass) -> void:
 	hourglass = hourglass1
 
+func set_params(params: Dictionary):
+	pass
+
 func finish():
 	GM.hourglass_manager.remove_hourglass(hourglass)
 	GM.minigame_viewer.close_current_minigame()

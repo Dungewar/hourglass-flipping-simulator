@@ -1,8 +1,6 @@
 extends Control
 class_name MainMenu
 
-var selected_level: int
-
 func _ready() -> void:
 	select_level(1)
 
@@ -24,4 +22,4 @@ func select_level(level_number: int) -> void:
 	for i in range(len(buttons.get_children())):
 		buttons.get_children()[i].text = 'Level %d' % (i+1)
 	buttons.get_children()[level_number-1].text = '[Selected] Level %d' % (level_number)
-	selected_level = level_number
+	GM.current_level_number = level_number

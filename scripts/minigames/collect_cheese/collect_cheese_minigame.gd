@@ -1,7 +1,11 @@
 extends Minigame
 class_name CollectCheeseMinigame
 
-var cheeses_required = 3
+# params
+var cheeses_required: int = 3
+var spawn_delay: float = 0.5
+
+# internal game stuff
 var cheese_scene: PackedScene = preload("res://scenes/minigames/collect_cheese/cheese.tscn")
 @onready var score: Label = $Score
 var time_since_spawn: float = 0
@@ -12,11 +16,18 @@ var cheeses_collected: int = 0:
 		if cheeses_collected == cheeses_required:
 			finish()
 
+func set_params(params: Dictionary):
+	print('setting params: %s' % params)
+	if params.has('cheeses_required'):
+		self.cheeses_required = params['cheeses_required']
+	if params.has('spawn_delay'):
+		self.spawn_delay = params['spawn_delay']
+
 func _process(delta: float) -> void:
 	if GM.minigame_viewer and (GM.minigame_viewer.minigame != self or not GM.minigame_viewer.is_open):
 		return
 	time_since_spawn += delta
-	if time_since_spawn > 0.5:
+	if time_since_spawn > spawn_delay:
 		spawn_cheese()
 		time_since_spawn = 0
 

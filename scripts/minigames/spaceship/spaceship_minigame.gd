@@ -12,6 +12,11 @@ var meteor_scene: Resource = preload("res://scenes/minigames/spaceship/meteor.ts
 var meteors_spawned: int = 0
 var time_since_meteor_spawn: float = 0
 
+func set_params(params: Dictionary):
+	if params.has('meteor_count'):
+		self.meteor_count = params['meteor_count']
+	if params.has('meteor_spawn_interval'):
+		self.meteor_spawn_interval = params['meteor_spawn_interval']
 
 func meteor_hit():
 	loss_screen.show()

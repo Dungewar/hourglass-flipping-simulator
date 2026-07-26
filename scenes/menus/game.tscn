@@ -6,17 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://dccobb8xknrqv" path="res://assets/retry_level_button.png" id="4_10jie"]
 [ext_resource type="Texture2D" uid="uid://qvatyu4643c6" path="res://assets/goto_main_menu_button.png" id="5_dan8d"]
 [ext_resource type="PackedScene" uid="uid://wggunled6d4v" path="res://scenes/minigames/minigame_viewer.tscn" id="6_10res"]
+[ext_resource type="Texture2D" uid="uid://cvt7faf0cr3c7" path="res://assets/level_complete.png" id="7_v8gyl"]
 
 [node name="Main" type="Node2D" unique_id=603821613]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1223480653]
 
-[node name="GamePlayer" type="Node" parent="." unique_id=397015393 node_paths=PackedStringArray("game_over_screen")]
+[node name="GamePlayer" type="Node" parent="." unique_id=397015393 node_paths=PackedStringArray("game_over_screen", "level_complete_screen")]
 script = ExtResource("1_u5cui")
 game_over_screen = NodePath("../GameOverScreen")
+level_complete_screen = NodePath("../LevelCompleteScreen")
 metadata/_custom_type_script = "uid://ca6a5cps5di55"
 
-[node name="HourglassSpawner" type="Node2D" parent="." unique_id=1162709628]
+[node name="HourglassManager" type="Node2D" parent="." unique_id=1162709628]
 script = ExtResource("2_u5cui")
 hourglass_max_spawns = 4
 hourglass_spawn_interval = 10
@@ -44,5 +46,31 @@ icon = ExtResource("5_dan8d")
 
 [node name="MinigameViewer" parent="." unique_id=1675238572 instance=ExtResource("6_10res")]
 
+[node name="LevelCompleteScreen" type="Node2D" parent="." unique_id=915287910]
+position = Vector2(0, -1000)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelCompleteScreen" unique_id=862688462]
+position = Vector2(-2.374939, 7.3125)
+scale = Vector2(0.6926519, 0.6651554)
+texture = ExtResource("7_v8gyl")
+
+[node name="NextLevelButton" type="Button" parent="LevelCompleteScreen" unique_id=1697752374]
+offset_left = -305.37494
+offset_top = 148.31238
+offset_right = -105.37494
+offset_bottom = 264.31238
+theme_override_colors/font_color = Color(0.82086766, 0.9458547, 7.70092e-07, 1)
+theme_override_font_sizes/font_size = 30
+text = "next level"
+
+[node name="MainMenuButton" type="Button" parent="LevelCompleteScreen" unique_id=631482866]
+offset_left = 118.62506
+offset_top = 152.31238
+offset_right = 318.62506
+offset_bottom = 268.31238
+icon = ExtResource("5_dan8d")
+
 [connection signal="pressed" from="GameOverScreen/RetryButton" to="GamePlayer" method="_on_retry_button_pressed"]
 [connection signal="pressed" from="GameOverScreen/MainMenuButton" to="GamePlayer" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="LevelCompleteScreen/NextLevelButton" to="GamePlayer" method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="LevelCompleteScreen/MainMenuButton" to="GamePlayer" method="_on_main_menu_button_pressed"]
