@@ -41,7 +41,8 @@ func _process(delta: float) -> void:
 		current_time += -cos(fmod(hourglass_sprite.rotation, PI))*delta
 		if current_time < 0: # Broken
 			working = false
-			GM.game_player.hourglass_broke(self)
+			GM.hourglass_manager.remove_hourglass(self)
+			GM.game_player.on_hourglass_broke()
 	label.text = get_text()
 	
 	if is_being_held and there_are_no_rocks_on_top():

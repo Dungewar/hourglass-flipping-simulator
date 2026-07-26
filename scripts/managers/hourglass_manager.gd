@@ -42,7 +42,6 @@ func add_hourglass(
 func remove_hourglass(hourglass: Hourglass):
 	hourglass_list.erase(hourglass)
 	hourglass.queue_free()
-	GM.game_player.on_hourglass_cleared()
 	
 	# shift hourglasses to the left
 	for i in range(0, hourglass_list.size()):

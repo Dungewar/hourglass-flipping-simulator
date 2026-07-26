@@ -55,10 +55,8 @@ func on_hourglass_cleared():
 	if num_hourglasses_cleared >= GM.LEVEL_PLANS[GM.current_level_number - 1].num_hourglasses_to_win:
 		create_tween().tween_property(level_complete_screen, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_QUART)
 
-func hourglass_broke(hourglass: Hourglass):
+func on_hourglass_broke():
 	GM.minigame_viewer.close_current_minigame()
-	GM.hourglass_manager.remove_hourglass(hourglass)
-	#game_over_screen.show()
 	create_tween().tween_property(game_over_screen, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_QUART)
 
 

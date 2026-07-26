@@ -17,7 +17,7 @@ func _ready():
 	var loss_button: Button = $RetryPopup/MarginContainer/VBoxContainer/LossButton
 	var victory_button: Button = $VictoryPopup/VBoxContainer/VictoryButton
 	loss_button.pressed.connect(_on_loss_button_pressed)
-	victory_button.pressed.connect(finish_minigame)
+	victory_button.pressed.connect(win_minigame)
 
 func set_params(_params: Dictionary):
 	pass
@@ -25,8 +25,9 @@ func set_params(_params: Dictionary):
 func retry_minigame():
 	pass
 
-func finish_minigame():
+func win_minigame():
 	GM.hourglass_manager.remove_hourglass(hourglass)
+	GM.game_player.on_hourglass_cleared()
 	GM.minigame_viewer.close_current_minigame()
 	queue_free()
 
