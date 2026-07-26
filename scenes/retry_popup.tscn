@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cfbunieuyltri"]
+
+[node name="RetryPopup" type="MarginContainer" unique_id=1329156939]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1758298884]
+layout_mode = 2
+color = Color(1, 0, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=610911352]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=791035590]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=473721838]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "LOSS"
+
+[node name="LossButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=862194584]
+layout_mode = 2
+text = "Try again"
