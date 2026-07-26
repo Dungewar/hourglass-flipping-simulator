@@ -36,6 +36,6 @@ func _physics_process(delta: float) -> void:
 	if global_position.x > maximum_bound.x or global_position.x < minimum_bound.x:
 		print("Flipping X")
 		position.x *= -1
-	if global_position.y > maximum_bound.y or global_position.y < minimum_bound.y:
-		print("Flipping Y")
-		position.y *= -1
+	#if global_position.y > maximum_bound.y or global_position.y < minimum_bound.y:
+		#print("Flipping Y")
+		#position.y *= -1

@@ -1,16 +1,28 @@
 [gd_scene format=3 uid="uid://csu38yll51gx4"]
 
-[ext_resource type="Theme" uid="uid://b3klx57slj0l3" path="res://assets/soft_retro_theme/soft_retro.tres" id="1_0ad5b"]
+[ext_resource type="Theme" uid="uid://h1f7iqhh7ycb" path="res://assets/themes/FlatUI4/kenneyUI-yellow.tres" id="1_na5uu"]
 [ext_resource type="Script" uid="uid://06q50jmdiotx" path="res://scripts/UI/main_menu.gd" id="1_rn7m7"]
+[ext_resource type="Texture2D" uid="uid://c7prhxc8dbcmn" path="res://icon.svg" id="3_hr8cn"]
 
-[node name="MainMenuScreen" type="Control" unique_id=982620950]
+[node name="MainMenuScreen" type="Control" unique_id=982620950 node_paths=PackedStringArray("level_selection_buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_na5uu")
 script = ExtResource("1_rn7m7")
+level_selection_buttons = [NodePath("MarginContainer/VBoxContainer/Buttons/Level1"), NodePath("MarginContainer/VBoxContainer/Buttons/Level2"), NodePath("MarginContainer/VBoxContainer/Buttons/Level3")]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=693323070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_hr8cn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=792692921]
 layout_mode = 1
@@ -19,13 +31,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_na5uu")
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=371268974]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_0ad5b")
+theme = ExtResource("1_na5uu")
 theme_override_constants/separation = 30
 
 [node name="PlayGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=555174528]
@@ -33,11 +50,12 @@ custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_0ad5b")
+theme = ExtResource("1_na5uu")
 text = "Play"
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1616386203]
 layout_mode = 2
+theme = ExtResource("1_na5uu")
 theme_override_constants/separation = 30
 
 [node name="Level1" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=923674478]
@@ -45,7 +63,9 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_0ad5b")
+theme = ExtResource("1_na5uu")
+toggle_mode = true
+button_pressed = true
 text = "Level 1"
 
 [node name="Level2" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=398704076]
@@ -53,7 +73,8 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_0ad5b")
+theme = ExtResource("1_na5uu")
+toggle_mode = true
 text = "Level 2"
 
 [node name="Level3" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=1673067382]
@@ -61,7 +82,8 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_0ad5b")
+theme = ExtResource("1_na5uu")
+toggle_mode = true
 text = "Level 3"
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1403707828]
@@ -69,8 +91,15 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_0ad5b")
+theme = ExtResource("1_na5uu")
 text = "Options"
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1348940236]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 70
+text = "HOURGLASS FLIPPING SIMULATOR"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Level1" to="." method="_on_level_1_pressed"]

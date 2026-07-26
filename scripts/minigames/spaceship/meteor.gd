@@ -27,3 +27,16 @@ func _physics_process(_delta: float) -> void:
 		spaceship_minigame.meteor_hit()
 	elif collision:
 		print("We struck ", collision.get_collider())
+		
+	# COPIED FROM SPACESHIP CODE ===========
+	var player_size = 20
+	var camera_size: Vector2 = get_viewport().get_visible_rect().size
+	var camera_position: Vector2 = get_viewport().get_visible_rect().position - camera_size/2
+	var minimum_bound: Vector2 = camera_position - Vector2(player_size, player_size)
+	var maximum_bound: Vector2 = camera_position + camera_size + Vector2(player_size, player_size)
+	
+	#var is_within: bool = get_viewport().get_visible_rect().has_point(global_position)
+	#print("am within:", is_within)
+	if global_position.x > maximum_bound.x or global_position.x < minimum_bound.x:
+		print("Flipping X")
+		position.x *= -1

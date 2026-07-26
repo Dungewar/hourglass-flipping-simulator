@@ -2,17 +2,67 @@
 
 [ext_resource type="Script" uid="uid://tsp76mnqbejk" path="res://scripts/minigames/spaceship/meteor.gd" id="1_buevd"]
 [ext_resource type="Texture2D" uid="uid://cr8v2nsgs2anj" path="res://assets/asteroid.png" id="2_wkt4l"]
+[ext_resource type="Texture2D" uid="uid://db6ivmxwbnidt" path="res://assets/image-removebg-preview(1).png" id="3_wkt4l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yku4"]
 radius = 24.0
+
+[sub_resource type="Curve" id="Curve_yqoa1"]
+_data = [Vector2(0.003086418, 1), 0.0, -0.5100723, 0, 1, Vector2(0.77160496, 0.608), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.662054, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wkt4l"]
+curve = SubResource("Curve_yqoa1")
+
+[sub_resource type="Curve" id="Curve_wkt4l"]
+_limits = [-1.0, 14.399994, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.9451303, 0, 1, Vector2(0.50617284, 0.47839928), 0.0, 0.0, 0, 0, Vector2(0.9969136, 1.5871992), 2.2594414, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e5rxn"]
+curve = SubResource("Curve_wkt4l")
+
+[sub_resource type="Curve" id="Curve_e5rxn"]
+_data = [Vector2(0, 1), 0.0, -0.4027582, 0, 1, Vector2(0.9969136, 0.5984849), -0.4027582, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0wjqw"]
+curve = SubResource("Curve_e5rxn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1yku4"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 40.0
+emission_ring_inner_radius = 39.0
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
+angle_curve = SubResource("CurveTexture_e5rxn")
+spread = 180.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 29.999977
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -200.0
+radial_accel_max = -100.0
+scale_min = 0.099999994
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_0wjqw")
+alpha_curve = SubResource("CurveTexture_wkt4l")
 
 [node name="Meteor" type="CharacterBody2D" unique_id=371414160]
 script = ExtResource("1_buevd")
 metadata/_custom_type_script = "uid://tsp76mnqbejk"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=795845295]
-scale = Vector2(0.48, 0.48)
-texture = ExtResource("2_wkt4l")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1308113926]
 shape = SubResource("CircleShape2D_1yku4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=96855943]
+amount = 40
+texture = ExtResource("3_wkt4l")
+process_material = SubResource("ParticleProcessMaterial_1yku4")
+
+[node name="Sprite2D" type="Sprite2D" parent="GPUParticles2D" unique_id=795845295]
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_wkt4l")
