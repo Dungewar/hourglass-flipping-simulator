@@ -12,7 +12,7 @@ func _ready() -> void:
 	var initial_velocity_y = ((2*randf()-1)**3 / 2 + 0.5) * (maximum_velocity - minimum_velocity) + minimum_velocity
 	var initial_velocity_x = (randf()-0.5) * 2 * max_drift
 	initial_velocity = Vector2(initial_velocity_x, initial_velocity_y)
-	print("Spawned meteor of velocity: ", initial_velocity)
+	#print("Spawned meteor of velocity: ", initial_velocity)
 	
 	# maybe temporary
 	velocity = initial_velocity
@@ -23,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 	var collision = get_last_slide_collision()
 	
 	if collision and collision.get_collider() is Spaceship:
-		print("We got him bois")
+		#print("We got him bois")
 		spaceship_minigame.meteor_hit()
-	elif collision:
-		print("We struck ", collision.get_collider())
+	#elif collision:
+		#print("We struck ", collision.get_collider())
