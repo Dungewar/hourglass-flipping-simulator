@@ -4,6 +4,7 @@ class_name CollectCheeseMinigame
 # params
 var cheeses_required: int = 3
 var spawn_delay: float = 0.5
+var mouse_speed: float = 500
 
 # internal game stuff
 var cheese_scene: PackedScene = preload("res://scenes/minigames/collect_cheese/cheese.tscn")
@@ -22,6 +23,8 @@ func set_params(params: Dictionary):
 		self.cheeses_required = params['cheeses_required']
 	if params.has('spawn_delay'):
 		self.spawn_delay = params['spawn_delay']
+	if params.has('mouse_speed'):
+		self.mouse_speed = params['mouse_speed']
 
 func _process(delta: float) -> void:
 	if GM.minigame_viewer and (GM.minigame_viewer.minigame != self or not GM.minigame_viewer.is_open):
@@ -45,6 +48,8 @@ func spawn_cheese():
 			randf_range(top_left.y, top_left.y + size.y)
 		)
 
-func on_collect():
-	#print('collect')
-	cheeses_collected += 1
+func _on_mouse_rodent_area_entered(colliding_object: Area2D) -> void:
+	if colliding_object is Cheese:
+		cheeses_collected += 1
+		colliding_object.queue_free()
+		remove_child(colliding_object)

@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://kdep3opknss1" path="res://scripts/minigames/collect_cheese/collect_cheese_minigame.gd" id="1_7hgj6"]
 [ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="2_pfsa0"]
+[ext_resource type="Script" uid="uid://bq1dw8r446w1o" path="res://scripts/minigames/collect_cheese/mouse_rodent.gd" id="3_h8hgy"]
+[ext_resource type="Texture2D" uid="uid://blcy7oigexa3a" path="res://assets/mouse.svg" id="3_vbr8x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tegv0"]
+radius = 28.0
+height = 68.0
 
 [node name="CollectCheeseMinigame" type="Node2D" unique_id=2108973007]
 script = ExtResource("1_7hgj6")
@@ -22,3 +28,18 @@ z_index = -1
 position = Vector2(0.999999, -0.99999994)
 scale = Vector2(1.889385, 1.9613472)
 texture = ExtResource("2_pfsa0")
+
+[node name="MouseRodent" type="Area2D" parent="." unique_id=903965363]
+position = Vector2(0, 48)
+script = ExtResource("3_h8hgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="MouseRodent" unique_id=1479752229]
+position = Vector2(-12.000004, 8.999999)
+scale = Vector2(0.4286885, 0.4286885)
+texture = ExtResource("3_vbr8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseRodent" unique_id=1624744846]
+position = Vector2(1, 7)
+shape = SubResource("CapsuleShape2D_tegv0")
+
+[connection signal="area_entered" from="MouseRodent" to="." method="_on_mouse_rodent_area_entered"]

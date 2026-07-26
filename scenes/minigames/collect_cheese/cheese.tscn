@@ -6,7 +6,7 @@
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_e62pm"]
 points = PackedVector2Array(-489, -3, 260, -366, 461, -148, 437, 272, -489, 369)
 
-[node name="Cheese" type="Area2D" unique_id=1362028287]
+[node name="Cheese" type="Area2D" unique_id=556985133]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_qlsck")
 
@@ -16,5 +16,3 @@ texture = ExtResource("2_smp72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2142587667]
 shape = SubResource("ConvexPolygonShape2D_e62pm")
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
