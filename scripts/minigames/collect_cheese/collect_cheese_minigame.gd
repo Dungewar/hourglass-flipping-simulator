@@ -14,7 +14,7 @@ var cheeses_collected: int = 0:
 		cheeses_collected = val
 		score.text = 'Cheese collected: %d/%d' % [cheeses_collected, cheeses_required]
 		if cheeses_collected == cheeses_required:
-			finish()
+			show_victory_popup()
 
 func set_params(params: Dictionary):
 	print('setting params: %s' % params)

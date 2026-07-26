@@ -17,12 +17,7 @@ func _ready() -> void:
 	# maybe temporary
 	velocity = initial_velocity
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	#var collision: KinematicCollision2D move_and_collide(initial_velocity)
 	var collision = get_last_slide_collision()

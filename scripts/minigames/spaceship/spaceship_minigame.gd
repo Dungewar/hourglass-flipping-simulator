@@ -4,10 +4,7 @@ class_name SpaceshipMinigame
 @export var meteor_count: int = 20
 @export var meteor_spawn_interval: float = 0.1
 @export var post_meteor_timer_until_win: float = 5
-@export var victory_screen: Control
-@export var loss_screen: Control
 @export var meteor_count_label: Label
-var can_win: bool = true
 var meteor_scene: Resource = preload("res://scenes/minigames/spaceship/meteor.tscn")
 var meteors_spawned: int = 0
 var time_since_meteor_spawn: float = 0
@@ -19,8 +16,7 @@ func set_params(params: Dictionary):
 		self.meteor_spawn_interval = params['meteor_spawn_interval']
 
 func meteor_hit():
-	loss_screen.show()
-	can_win = false
+	show_retry_popup()
 
 func spawn_meteor():
 	var meteor: Meteor = meteor_scene.instantiate()
@@ -48,21 +44,13 @@ func _process(_delta: float) -> void:
 			meteors_spawned += 1
 			print("Spawned meteor!")
 			
-	elif time_since_meteor_spawn > post_meteor_timer_until_win and can_win:
+	elif time_since_meteor_spawn > post_meteor_timer_until_win:
 		# you win!
-		victory_screen.show()
+		show_victory_popup()
 
-
-func _on_victory_button_pressed() -> void:
-	finish()
-
-
-func _on_loss_button_pressed() -> void:
-	can_win = true
-	#retry_minigame()
+func retry_minigame() -> void:
 	meteors_spawned = 0
 	time_since_meteor_spawn = -3
 	for child in get_children():
 		if child is Meteor:
 			child.queue_free()
-	loss_screen.hide()
