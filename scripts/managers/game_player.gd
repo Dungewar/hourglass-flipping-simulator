@@ -8,8 +8,8 @@ var time_since_start: float = 0
 var last_event_time: float = 0
 
 # node stuff
-@export var game_over_screen: Node2D
-@export var level_complete_screen: Node2D
+@export var game_over_screen: Control
+@export var level_complete_screen: Control
 @onready var collect_cheese_minigame_scene = preload("res://scenes/minigames/collect_cheese/collect_cheese_minigame.tscn")
 @onready var spaceship_minigame_scene = preload("res://scenes/minigames/spaceship/spaceship_minigame.tscn")
 
