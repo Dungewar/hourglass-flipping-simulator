@@ -19,15 +19,13 @@ func _ready() -> void:
 	is_open = false
 	GM.minigame_viewer = self
 
-func _process(_delta):
-	pass
-
 func open_minigame(minigame_to_open: Minigame) -> void:
 	minigame = minigame_to_open
 	sub_viewport.add_child(minigame)
 	is_open = true
 
 func close_current_minigame() -> bool:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if sub_viewport.get_children().has(minigame):
 		sub_viewport.remove_child(minigame)
 		minigame = null
