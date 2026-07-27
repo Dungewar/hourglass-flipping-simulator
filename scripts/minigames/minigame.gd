@@ -37,13 +37,14 @@ func show_victory_popup():
 		return
 	is_popup_showing = true
 	victory_popup.show()
+	victory_popup.z_index = 105
 
 func show_retry_popup():
 	if is_popup_showing:
 		return
 	is_popup_showing = true
 	retry_popup.show()
-	retry_popup.z_index = 102
+	retry_popup.z_index = 105
 
 func _on_loss_button_pressed():
 	retry_popup.hide()

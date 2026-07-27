@@ -4,22 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="2_pfsa0"]
 [ext_resource type="Script" uid="uid://bq1dw8r446w1o" path="res://scripts/minigames/collect_cheese/mouse_rodent.gd" id="3_h8hgy"]
 [ext_resource type="Texture2D" uid="uid://blcy7oigexa3a" path="res://assets/mouse.svg" id="3_vbr8x"]
+[ext_resource type="Script" uid="uid://dj88wn43lo41w" path="res://scripts/minigames/collect_cheese/hide_cursor.gd" id="5_oc38o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tegv0"]
 radius = 28.0
 height = 68.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tegv0"]
+size = Vector2(1908, 1072)
+
 [node name="CollectCheeseMinigame" type="Node2D" unique_id=2108973007]
 script = ExtResource("1_7hgj6")
 
 [node name="Score" type="Label" parent="." unique_id=219454039]
-offset_left = -129.0
-offset_top = -30.0
-offset_right = 129.0
-offset_bottom = 26.0
+offset_left = -177.0
+offset_top = -22.0
+offset_right = 170.0
+offset_bottom = 34.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "click the cheeses!"
+text = "Click to eat the cheeses!"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=908041878]
 
@@ -30,6 +34,7 @@ scale = Vector2(1.889385, 1.9613472)
 texture = ExtResource("2_pfsa0")
 
 [node name="MouseRodent" type="Area2D" parent="." unique_id=903965363]
+z_index = 102
 position = Vector2(0, 48)
 script = ExtResource("3_h8hgy")
 
@@ -42,4 +47,13 @@ texture = ExtResource("3_vbr8x")
 position = Vector2(1, 7)
 shape = SubResource("CapsuleShape2D_tegv0")
 
+[node name="HideCursor" type="Area2D" parent="." unique_id=1975937670]
+script = ExtResource("5_oc38o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HideCursor" unique_id=1364191444]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_tegv0")
+
 [connection signal="area_entered" from="MouseRodent" to="." method="_on_mouse_rodent_area_entered"]
+[connection signal="mouse_entered" from="HideCursor" to="HideCursor" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HideCursor" to="HideCursor" method="_on_mouse_exited"]

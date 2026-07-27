@@ -28,7 +28,7 @@ func _on_play_game_button_pressed() -> void:
 #
 #func _on_level_3_pressed() -> void:
 	#select_level(3)
-
+#
 #func select_level(level_number: int) -> void:
 	#print(level_number)
 	#for i in range(len(level_selection_buttons)):

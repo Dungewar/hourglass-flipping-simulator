@@ -2,7 +2,7 @@ extends Minigame
 class_name CollectCheeseMinigame
 
 # params
-var cheeses_required: int = 3
+var num_cheeses_required: int = 3
 var spawn_delay: float = 0.5
 var mouse_speed: float = 500
 
@@ -10,16 +10,16 @@ var mouse_speed: float = 500
 var cheese_scene: PackedScene = preload("res://scenes/minigames/collect_cheese/cheese.tscn")
 @onready var score: Label = $Score
 var time_since_spawn: float = 0
-var cheeses_collected: int = 0:
+var num_cheeses_collected: int = 0:
 	set(val):
-		cheeses_collected = val
-		score.text = 'Cheese collected: %d/%d' % [cheeses_collected, cheeses_required]
-		if cheeses_collected == cheeses_required:
+		num_cheeses_collected = val
+		score.text = 'Cheese collected: %d/%d' % [num_cheeses_collected, num_cheeses_required]
+		if num_cheeses_collected == num_cheeses_required:
 			show_victory_popup()
 
 func set_params(params: Dictionary):
-	if params.has('cheeses_required'):
-		self.cheeses_required = params['cheeses_required']
+	if params.has('num_cheeses_required'):
+		self.num_cheeses_required = params['num_cheeses_required']
 	if params.has('spawn_delay'):
 		self.spawn_delay = params['spawn_delay']
 	if params.has('mouse_speed'):
@@ -47,8 +47,12 @@ func spawn_cheese():
 			randf_range(top_left.y, top_left.y + size.y)
 		)
 
+func on_collect():
+	num_cheeses_collected += 1
+
 func _on_mouse_rodent_area_entered(colliding_object: Area2D) -> void:
-	if colliding_object is Cheese:
-		cheeses_collected += 1
-		colliding_object.queue_free()
-		remove_child(colliding_object)
+	#if colliding_object is Cheese:
+		#on_collect()
+		#colliding_object.queue_free()
+		#remove_child(colliding_object)
+	pass
