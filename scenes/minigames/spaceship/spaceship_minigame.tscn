@@ -4,11 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://d03sgqtfvnwqe" path="res://assets/minigame.png" id="2_lpbcd"]
 [ext_resource type="Script" uid="uid://qxhwp54374ki" path="res://scripts/minigames/spaceship/spaceship.gd" id="3_ix3ia"]
 [ext_resource type="Texture2D" uid="uid://djb05ubuhicpf" path="res://assets/spaceship-2.png" id="4_e5hka"]
-[ext_resource type="Texture2D" uid="uid://db6ivmxwbnidt" path="res://assets/image-removebg-preview(1).png" id="5_e5hka"]
+[ext_resource type="Texture2D" uid="uid://c0t7ao2ye23ut" path="res://assets/flame-particles.png" id="5_fs1xv"]
 [ext_resource type="Theme" uid="uid://h1f7iqhh7ycb" path="res://assets/themes/FlatUI4/kenneyUI-yellow.tres" id="6_fs1xv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yku4"]
 size = Vector2(64, 160)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mjf0n"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_fs1xv"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
@@ -39,12 +45,13 @@ initial_velocity_max = 425.41
 gravity = Vector3(0, 98, 0)
 radial_accel_min = 44.089996
 radial_accel_max = 89.24999
-scale_min = 0.099999994
-scale_max = 0.099999994
+scale_min = 3.0
+scale_max = 3.0
 scale_curve = SubResource("CurveTexture_0wjqw")
 hue_variation_min = 0.26999998
 hue_variation_max = 0.39999998
 hue_variation_curve = SubResource("CurveTexture_j6vy1")
+anim_offset_max = 1.0
 
 [node name="Spaceship" type="Node2D" unique_id=949863672 node_paths=PackedStringArray("meteor_count_label")]
 script = ExtResource("1_y1l38")
@@ -75,9 +82,10 @@ texture = ExtResource("4_e5hka")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Spaceship/Sprite2D" unique_id=1989245593]
 z_index = -1
+material = SubResource("CanvasItemMaterial_mjf0n")
 position = Vector2(0, 47)
 amount = 50
-texture = ExtResource("5_e5hka")
+texture = ExtResource("5_fs1xv")
 lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_1yku4")
 
